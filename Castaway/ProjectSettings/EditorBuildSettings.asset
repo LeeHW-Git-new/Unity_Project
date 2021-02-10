@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Loading.unity
     guid: 8e935cd28818c1145b1030aafa6820bb
   - enabled: 1
-    path: Assets/Resources/Scenes/PlayTest.unity
-    guid: 4829304a4f63c5743aab1475bbe24746
-  - enabled: 1
-    path: Assets/Resources/Scenes/Play.unity
-    guid: 62ceb8d08ab1c054cae562ac24541d9f
+    path: Assets/Resources/Scenes/Forest.unity
+    guid: 3a7fae7730558744a87c69378a8aa5bb
   m_configObjects: {}

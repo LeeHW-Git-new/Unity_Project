@@ -27,7 +27,7 @@ public class TestSceneChange : MonoBehaviour
 
     void ChangeScene()
     {
-        LoadingManager.LoadScene("Play");
+        LoadingManager.LoadScene("Forest");
     }
 
 
