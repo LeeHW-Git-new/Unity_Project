@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    #region Singleton
     public static SoundManager sInstance;
 
     public static SoundManager Instance
@@ -22,6 +23,7 @@ public class SoundManager : MonoBehaviour
     {
         sInstance = this;
     }
+    #endregion
 
     public int audioSourceCount = 1;
 
