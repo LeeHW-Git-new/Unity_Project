@@ -28,6 +28,11 @@ public class Inventory : MonoBehaviour
     public delegate void OnSlotCountChange(int val);
     public OnSlotCountChange onSlotCountChange;
 
+    public delegate void OnChangeItem();
+    public OnChangeItem onChangeItem;
+
+    public List<Item> items = new List<Item>();
+
     private int slotCnt;
     public int SlotCnt
     {
@@ -44,9 +49,35 @@ public class Inventory : MonoBehaviour
         SlotCnt = 4;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool AddItem(Item _item)
     {
-        
+        if (items.Count < SlotCnt)
+        {
+            items.Add(_item);
+            if(onChangeItem !=null)
+                onChangeItem.Invoke();
+            return true;
+        }
+        return false;
     }
+
+    public void RemoveItem(int _index)
+    {
+        items.RemoveAt(_index);
+        onChangeItem.Invoke();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("FieldItem"))
+        {
+            FieldItems fieldItems = other.GetComponent<FieldItems>();
+            if(AddItem(fieldItems.GetItem()))
+             {
+                fieldItems.DestroyItem();
+            }
+        }
+    }
+
 }

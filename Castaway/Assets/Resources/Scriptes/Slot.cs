@@ -1,18 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Slot : MonoBehaviour
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+public class Slot : MonoBehaviour, IPointerUpHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public int slotNum;
+    public Item item;
+    public Image itemIcon;
+
+    public void UpdateSlotUI()
     {
-        
+        itemIcon.sprite = item.itemImage;
+        itemIcon.gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void RemoveSlot()
     {
-        
+        item = null;
+        itemIcon.gameObject.SetActive(false);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if(item!=null)
+        {
+            bool isUse = item.Use();
+            Inventory.Instance.RemoveItem(slotNum);
+        }
     }
 }
