@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class InventoryUI : MonoBehaviour
     [HideInInspector]
     public ControllerMode mode;
 
-    
+    private string BtnName;
 
 
     private void Start()
@@ -50,16 +51,15 @@ public class InventoryUI : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+       
+        if( Input.GetKeyDown(KeyCode.I)||
+           (inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))||
+            BtnName == "InventoryUIExit"||
+            BtnName == "InventoryBtn")
         {
             activeInventory = !activeInventory;
             inventoryPanel.SetActive(activeInventory);
-        }
-
-        if(inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-        {
-            activeInventory = !activeInventory;
-            inventoryPanel.SetActive(false);
+            BtnName = "";
         }
 
 
@@ -72,8 +72,6 @@ public class InventoryUI : MonoBehaviour
         {
             MainMenuPrfab.gameObject.SetActive(false);
         }
-
-
 
     }
 
@@ -116,5 +114,10 @@ public class InventoryUI : MonoBehaviour
         //prefabFood = foods[v2];
     }
 
+
+    private void BtnEvent()
+    {
+        BtnName = EventSystem.current.currentSelectedGameObject.name;
+    }
 
 }

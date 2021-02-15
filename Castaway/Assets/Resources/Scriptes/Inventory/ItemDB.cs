@@ -16,7 +16,7 @@ public class ItemDB : MonoBehaviour
     public Vector3[] pos;
     private void Start()
     {
-        for(int i = 0; i<4; i++)
+        for(int i = 0; i< pos.Length; i++)
         {
             GameObject go = Instantiate(fieldItemPrefab, pos[i], Quaternion.identity);
             go.GetComponent<FieldItems>().SetItem(itemDB[Random.Range(0, 3)]);

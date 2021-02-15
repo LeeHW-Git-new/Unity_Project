@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Rigidbody characterRigidbody;
@@ -17,24 +17,25 @@ public class Player : MonoBehaviour
 
     Animator animator;
 
-
+    public Image hpBar;
 
 
     void Start()
     {
+        GameManager.Instance.playerHP = 100f;
         characterRigidbody = GetComponent<Rigidbody>();
         pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
-    {
+    {   
         CharacterControl_Slerp();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         Input_Animation();
         TryRun();
         //Debug.Log(pcController.velocity.magnitude);
-
+        StartCoroutine(HPbar());
     }
     private void CharacterControl_Slerp()
     {
@@ -86,5 +87,13 @@ public class Player : MonoBehaviour
     }
 
 
-
+    IEnumerator HPbar()
+    {
+        while (GameManager.Instance.playerHP >= 0)
+        {
+            GameManager.Instance.playerHP -= 0.05f*Time.deltaTime;
+            hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
+            yield return new WaitForSeconds(5f);
+        }
+    }
 }

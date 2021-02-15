@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-
+    #region Singleton
     private static GameManager sInstance;
 
     public static GameManager Instance
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         Screen.SetResolution(1280, 960, true);
         DontDestroyOnLoad(this.gameObject);
     }
+    #endregion
 
+    public float playerHP;
 
 }

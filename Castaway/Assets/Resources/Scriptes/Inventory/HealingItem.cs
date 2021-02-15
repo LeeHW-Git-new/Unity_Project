@@ -5,10 +5,10 @@ using UnityEngine;
 //[CreateAssetMenu(menuName = "ItemEft/Consumable/Health")]
 public class HealingItem : ItemEffect
 {
-    public int healPoint = 0;
+    public float healPoint = 0;
    public override bool ExecuteRole()
     {
-        Debug.Log("PlayerHP Add;" + healPoint);
+        GameManager.Instance.playerHP += healPoint;
         return true;
     }
 }
