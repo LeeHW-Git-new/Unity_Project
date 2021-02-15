@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     Animator animator;
 
+
+
+
     void Start()
     {
         characterRigidbody = GetComponent<Rigidbody>();
@@ -81,4 +84,7 @@ public class Player : MonoBehaviour
         animator.SetBool("Runing", false);
         ApplySpeed = MoveSpeed;
     }
+
+
+
 }

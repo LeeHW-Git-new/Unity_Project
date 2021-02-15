@@ -12,6 +12,15 @@ public class InventoryUI : MonoBehaviour
 
     public Slot[] slots;
     public GameObject slotHolder;
+
+    public RingMenu MainMenuPrfab;
+    protected RingMenu MainMenuInstance;
+    [HideInInspector]
+    public ControllerMode mode;
+
+    
+
+
     private void Start()
     {
         playerinventory = Inventory.Instance;
@@ -46,6 +55,33 @@ public class InventoryUI : MonoBehaviour
             activeInventory = !activeInventory;
             inventoryPanel.SetActive(activeInventory);
         }
+
+        if(inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            activeInventory = !activeInventory;
+            inventoryPanel.SetActive(false);
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            MainMenuPrfab.gameObject.SetActive(true);
+            //MainMenuInstance.callback = MenuClick;
+        }
+        else if(Input.GetKeyUp(KeyCode.Q))
+        {
+            MainMenuPrfab.gameObject.SetActive(false);
+        }
+
+
+
+    }
+
+    private void MenuClick(string path)
+    {
+       // Debug.Log(path);
+       // string[] paths = path.Split('/');
+       // GetComponent<weapon>().SetPrefab(int.Parse(paths[1]), int.Parse(paths[2]));
     }
 
     public void AddSlot()
@@ -65,5 +101,20 @@ public class InventoryUI : MonoBehaviour
             slots[i].UpdateSlotUI();
         }
     }
+
+
+    public enum ControllerMode
+    {
+        Play,
+        Build,
+        Menu
+    }
+
+    internal void SetPrefab (int v1, int v2)
+    {
+        //PrefabWeapon = weapons[v1];
+        //prefabFood = foods[v2];
+    }
+
 
 }

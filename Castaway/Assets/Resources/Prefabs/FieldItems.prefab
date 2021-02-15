@@ -100,6 +100,7 @@ MonoBehaviour:
     itemType: 0
     itemName: 
     itemImage: {fileID: 0}
+    efts: []
   image: {fileID: 9155823326585768212}
 --- !u!65 &3968461322163361420
 BoxCollider:
