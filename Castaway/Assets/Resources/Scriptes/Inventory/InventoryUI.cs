@@ -21,6 +21,8 @@ public class InventoryUI : MonoBehaviour
 
     private string BtnName;
 
+    public GameObject settingUI;
+    bool activeSettingUI = false;
 
     private void Start()
     {
@@ -53,7 +55,7 @@ public class InventoryUI : MonoBehaviour
     {
        
         if( Input.GetKeyDown(KeyCode.I)||
-           (inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))||
+           (inventoryPanel.activeSelf &&Input.GetKeyDown(KeyCode.Escape))||
             BtnName == "InventoryUIExit"||
             BtnName == "InventoryBtn")
         {
@@ -71,6 +73,15 @@ public class InventoryUI : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Q))
         {
             MainMenuPrfab.gameObject.SetActive(false);
+        }
+
+
+        if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||
+            (settingUI.activeSelf&&Input.GetKeyDown(KeyCode.Escape)))
+        {
+            activeSettingUI = !activeSettingUI;
+            settingUI.SetActive(activeSettingUI);
+            BtnName = "";
         }
 
     }
