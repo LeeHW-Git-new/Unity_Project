@@ -73651,6 +73651,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1329148926}
     m_Modifications:
+    - target: {fileID: 896313526298010564, guid: 944f8bdc29bb4374ea92707af0997e15, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 896313526298010564, guid: 944f8bdc29bb4374ea92707af0997e15, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 896313526298010564, guid: 944f8bdc29bb4374ea92707af0997e15, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 896313526298010564, guid: 944f8bdc29bb4374ea92707af0997e15, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6346251263595417182, guid: 944f8bdc29bb4374ea92707af0997e15, type: 3}
       propertyPath: m_Name
       value: Slot

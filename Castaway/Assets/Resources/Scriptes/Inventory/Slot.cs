@@ -9,8 +9,14 @@ public class Slot : MonoBehaviour, IPointerUpHandler
     public Item item;
     public Image itemIcon;
 
+    private void Start()
+    {
+        itemIcon.color = new Color(255, 255, 255, 0);
+    }
+
     public void UpdateSlotUI()
     {
+        itemIcon.color = new Color(itemIcon.color.r, itemIcon.color.g, itemIcon.color.b, 1.0f);
         itemIcon.sprite = item.itemImage;
         itemIcon.gameObject.SetActive(true);
     }
