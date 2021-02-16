@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,17 +27,23 @@ public class Player : MonoBehaviour
         characterRigidbody = GetComponent<Rigidbody>();
         pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
     }
 
     void Update()
-    {   
+    {
+
         CharacterControl_Slerp();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         Input_Animation();
         TryRun();
         //Debug.Log(pcController.velocity.magnitude);
         StartCoroutine(HPbar());
+
     }
+
+
+
     private void CharacterControl_Slerp()
     {
             Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
@@ -53,7 +60,8 @@ public class Player : MonoBehaviour
             }
             //direction.y -= jumpSpeed * Time.deltaTime;
             pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
-        }
+        
+    }
     private void Input_Animation()
     {
         if (Input.GetMouseButtonDown(0))
@@ -91,9 +99,12 @@ public class Player : MonoBehaviour
     {
         while (GameManager.Instance.playerHP >= 0)
         {
-            GameManager.Instance.playerHP -= 1f*Time.deltaTime;
+            GameManager.Instance.playerHP -= 0.1f*Time.deltaTime;
             hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
             yield return new WaitForSeconds(5f);
         }
     }
+
+
+
 }
