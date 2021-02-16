@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1280, 960, true);
+        Screen.SetResolution(1920, 1080, true);
         DontDestroyOnLoad(this.gameObject);
     }
     #endregion
