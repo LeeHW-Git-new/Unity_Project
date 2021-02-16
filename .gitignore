@@ -61,3 +61,6 @@ crashlytics-build.properties
 #Library file
 Library/
 
+#Temp file
+Temp/
+
