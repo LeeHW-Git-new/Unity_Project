@@ -84,6 +84,9 @@ public class InventoryUI : MonoBehaviour
             BtnName = "";
         }
 
+
+
+
     }
 
     private void MenuClick(string path)
@@ -129,6 +132,19 @@ public class InventoryUI : MonoBehaviour
     private void BtnEvent()
     {
         BtnName = EventSystem.current.currentSelectedGameObject.name;
+    }
+
+
+
+    private void Quit()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
 }
