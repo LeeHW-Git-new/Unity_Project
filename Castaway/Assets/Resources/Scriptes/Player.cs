@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Fishing");
         }
 
+        if(Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger("Logging");
+        }
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
         {
             Fishing = true;
