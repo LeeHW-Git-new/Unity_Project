@@ -15,6 +15,14 @@ public class Item
     public ItemType itemType;
     public string itemName;
     public Sprite itemImage;
+    public Mesh itemMesh;
+    public Texture itemTexture;
+
+    [HideInInspector]
+    public MeshFilter itemMeshFilter;
+    [HideInInspector]
+    public MeshRenderer itemMeshRenderer;
+
     public List<ItemEffect> efts;
     public bool Use()
     {

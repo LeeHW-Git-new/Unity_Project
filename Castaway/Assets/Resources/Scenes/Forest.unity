@@ -78458,16 +78458,28 @@ MonoBehaviour:
   - itemType: 1
     itemName: Potato
     itemImage: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
+    itemMesh: {fileID: 4300000, guid: a9950088baffdee4f99bc902d9b65260, type: 2}
+    itemTexture: {fileID: 2800000, guid: a7ed2fd93f68b02428569e3b4a764a69, type: 3}
+    itemMeshFilter: {fileID: 0}
+    itemMeshRenderer: {fileID: 0}
     efts:
     - {fileID: 11400000, guid: b031fb2cc861f4c47bfe472f68d79e40, type: 2}
   - itemType: 1
     itemName: Banana
     itemImage: {fileID: 21300000, guid: 4c265f346c5265440a985b4923be7cf5, type: 3}
+    itemMesh: {fileID: 4300000, guid: a9950088baffdee4f99bc902d9b65260, type: 2}
+    itemTexture: {fileID: 2800000, guid: a7ed2fd93f68b02428569e3b4a764a69, type: 3}
+    itemMeshFilter: {fileID: 0}
+    itemMeshRenderer: {fileID: 0}
     efts:
     - {fileID: 11400000, guid: b031fb2cc861f4c47bfe472f68d79e40, type: 2}
   - itemType: 2
     itemName: Plank
     itemImage: {fileID: 21300000, guid: 315f255e26848384bb5cf1650ac24b58, type: 3}
+    itemMesh: {fileID: 4300000, guid: a9950088baffdee4f99bc902d9b65260, type: 2}
+    itemTexture: {fileID: 2800000, guid: a7ed2fd93f68b02428569e3b4a764a69, type: 3}
+    itemMeshFilter: {fileID: 0}
+    itemMeshRenderer: {fileID: 0}
     efts: []
   fieldItemPrefab: {fileID: 1687223851523296171, guid: 0b98868ccafa06c43861f15d6fe6cab2, type: 3}
   pos:
