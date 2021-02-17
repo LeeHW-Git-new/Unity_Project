@@ -19,6 +19,8 @@ public class Item
     public Texture itemTexture;
 
     [HideInInspector]
+    public int itemCnt;
+    [HideInInspector]
     public MeshFilter itemMeshFilter;
     [HideInInspector]
     public MeshRenderer itemMeshRenderer;
