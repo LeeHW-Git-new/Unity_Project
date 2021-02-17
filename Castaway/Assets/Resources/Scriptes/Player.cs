@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
 
+    bool Fishing = false;
 
     CharacterController pcController;
     Vector3 direction;
@@ -32,20 +33,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         CharacterControl_Slerp();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
-        Input_Animation();
+        Fishing_Animation();
         TryRun();
-        //Debug.Log(pcController.velocity.magnitude);
         StartCoroutine(HPbar());
 
     }
 
-
-
     private void CharacterControl_Slerp()
     {
+        if(!Fishing)
+        {
             Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
                 0,
                 Input.GetAxis("Vertical"));
@@ -58,16 +57,21 @@ public class Player : MonoBehaviour
                     Vector3.Angle(transform.forward, direction));
                 transform.LookAt(transform.position + forward);
             }
-            //direction.y -= jumpSpeed * Time.deltaTime;
             pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
-        
+        }
     }
-    private void Input_Animation()
+    private void Fishing_Animation()
     {
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Fishing");
         }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
+        {
+            Fishing = true;
+        }
+        else Fishing = false;
     }
 
     private void TryRun()
@@ -93,7 +97,6 @@ public class Player : MonoBehaviour
         animator.SetBool("Runing", false);
         ApplySpeed = MoveSpeed;
     }
-
 
     IEnumerator HPbar()
     {

@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fb2dff705ad12344bb0d07c8ce136f8e, type: 2}
 --- !u!1001 &304320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78234,7 +78234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 14adb3fad1e3f7642b0db2aca6ca31eb, type: 3}
       propertyPath: m_TagString
-      value: Plane
+      value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 14adb3fad1e3f7642b0db2aca6ca31eb, type: 3}
       propertyPath: m_StaticEditorFlags
