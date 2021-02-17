@@ -56,6 +56,10 @@ public class Inventory : MonoBehaviour
             items.Add(_item);
             if(onChangeItem !=null)
                 onChangeItem.Invoke();
+
+
+
+
             return true;
         }
         return false;
@@ -74,7 +78,7 @@ public class Inventory : MonoBehaviour
         {
             FieldItems fieldItems = other.GetComponent<FieldItems>();
             if(AddItem(fieldItems.GetItem()))
-             {
+            {
                 fieldItems.DestroyItem();
             }
         }
