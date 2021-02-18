@@ -11,16 +11,22 @@ public class DragAndDrop : MonoBehaviour
     public DADContainer container;
     bool isDragging = false;
 
+    private Transform tempParent;
+    public GameObject canvas;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(itemIcon.sprite == null)
+        if(itemIcon.sprite != null)
         {
-            return;
+            tempParent = transform.parent;
+            transform.SetParent(canvas.transform);
+
+            container.gameObject.SetActive(true);
+            container.image.sprite = itemIcon.sprite;
+            isDragging = true;
         }
 
-        container.gameObject.SetActive(true);
-        container.image.sprite = itemIcon.sprite;
-        isDragging = true;
+       
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -45,6 +51,9 @@ public class DragAndDrop : MonoBehaviour
                 itemIcon.sprite = null;
             }
         }
+
+        //transform.SetParent(tempParent);
+
 
         isDragging = false;
         container.image.sprite = null;
