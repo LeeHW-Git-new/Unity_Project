@@ -50,9 +50,12 @@ MonoBehaviour:
     itemType: 0
     itemName: 
     itemImage: {fileID: 0}
-    prefabs: {fileID: 0}
+    itemMesh: {fileID: 0}
+    itemTexture: {fileID: 0}
+    itemCnt: 0
+    itemMeshFilter: {fileID: 0}
+    itemMeshRenderer: {fileID: 0}
     efts: []
-  image: {fileID: 0}
 --- !u!65 &3968461322163361420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,7 +67,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 2, y: 8, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &-5600714499597648109
 MeshFilter:

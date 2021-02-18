@@ -35020,15 +35020,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400054, guid: fc4463bd7987e984dae6b60d3da957c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.4
+      value: -23.2
       objectReference: {fileID: 0}
     - target: {fileID: 400054, guid: fc4463bd7987e984dae6b60d3da957c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.7
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 400054, guid: fc4463bd7987e984dae6b60d3da957c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 400054, guid: fc4463bd7987e984dae6b60d3da957c3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -76994,14 +76994,14 @@ MonoBehaviour:
     efts: []
   fieldItemPrefab: {fileID: 1687223851523296171, guid: 0b98868ccafa06c43861f15d6fe6cab2, type: 3}
   pos:
-  - {x: -70, y: 45, z: 38}
-  - {x: -70, y: 45, z: 40}
-  - {x: -70, y: 45, z: 42}
-  - {x: -70, y: 45, z: 44}
-  - {x: -68, y: 45, z: 38}
-  - {x: -68, y: 45, z: 40}
-  - {x: -68, y: 45, z: 42}
-  - {x: -68, y: 45, z: 44}
+  - {x: -23.2, y: 2.2, z: 36}
+  - {x: -23.2, y: 2.2, z: 34}
+  - {x: -23.2, y: 2.2, z: 32}
+  - {x: -23.2, y: 2.2, z: 30}
+  - {x: -21.2, y: 2.2, z: 36}
+  - {x: -21.2, y: 2.2, z: 34}
+  - {x: -21.2, y: 2.2, z: 32}
+  - {x: -21.2, y: 2.2, z: 30}
 --- !u!4 &1281796689
 Transform:
   m_ObjectHideFlags: 0
