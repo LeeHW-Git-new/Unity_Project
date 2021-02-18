@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventoryUI : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
 
     public GameObject inventoryPanel;
