@@ -7,6 +7,8 @@ TagManager:
   - Plane
   - FieldItem
   - Water
+  - Animal
+  - Weapon
   layers:
   - Default
   - TransparentFX

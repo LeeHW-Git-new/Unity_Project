@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
 {
     private Rigidbody characterRigidbody;
 
+    public GameObject[] Weapons;
+    public bool[] hasWeapons;
+    GameObject NearWeapon;
+    GameObject EquipWeapon;
+    int EquipWeaponIndex = -1;
+
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
     public float ApplySpeed = MoveSpeed;
@@ -14,13 +20,23 @@ public class Player : MonoBehaviour
 
     bool Fishing = false;
 
+    bool Item = false;
+
+    bool sDown1;
+    bool sDown2;
+    bool sDown3;
+
     CharacterController pcController;
-    Vector3 direction;
 
     Animator animator;
 
     public Image hpBar;
 
+
+    void Wepon_Interation()
+    {
+
+    }
 
     void Start()
     {
@@ -33,10 +49,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        CharacterControl_Slerp();
+        GetInput();
+        //CharacterControl_Slerp();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
-        Fishing_Animation();
-        TryRun();
+        Interation();
+        Swap();
+        //Fishing_Animation();
+        //TryRun();
         StartCoroutine(HPbar());
 
     }
@@ -112,7 +131,73 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(5f);
         }
     }
+    void GetInput()
+    {
 
+        CharacterControl_Slerp();
+        TryRun();
+        Fishing_Animation();
+        Item = Input.GetButtonDown("Interation");
 
+        sDown1 = Input.GetButtonDown("Swap1");
+        sDown2 = Input.GetButtonDown("Swap2");
+        sDown3 = Input.GetButtonDown("Swap3");
 
+    }
+
+    void Swap()
+    {
+        if (sDown1 && (!hasWeapons[0] || EquipWeaponIndex == 0))
+            return;
+        if (sDown2 && (!hasWeapons[1] || EquipWeaponIndex == 1))
+            return;
+        if (sDown3 && (!hasWeapons[2] || EquipWeaponIndex == 2))
+            return;
+
+        int WeaponIndex = -1;
+        if (sDown1) WeaponIndex = 0;
+        if (sDown2) WeaponIndex = 1;
+        if (sDown3) WeaponIndex = 2;
+        if (sDown1 || sDown2 || sDown3)
+        {
+            if(EquipWeapon != null)
+            {
+                EquipWeapon.SetActive(false);
+            }
+            EquipWeaponIndex = WeaponIndex;
+            EquipWeapon = Weapons[WeaponIndex];
+            EquipWeapon.SetActive(true);
+        }
+    }
+
+    void Interation()
+    {
+        if(Item && NearWeapon != null)
+        {
+            if(NearWeapon.tag == "Weapon")
+            {
+                Weapon item = NearWeapon.GetComponent<Weapon>();
+                int WeaponIndex = item.value;
+                hasWeapons[WeaponIndex] = true;
+
+                Destroy(NearWeapon);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Weapon")
+        {
+            NearWeapon = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Weapon")
+        {
+            NearWeapon = null;
+        }
+    }
 }

@@ -6,7 +6,8 @@ public enum ItemType
 {
     Equpment,
     Consumables,
-    Etc
+    Etc,
+    Weapon
 }
 
 [System.Serializable]
