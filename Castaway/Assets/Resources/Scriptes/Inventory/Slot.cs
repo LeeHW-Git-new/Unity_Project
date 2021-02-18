@@ -11,6 +11,10 @@ public class Slot : MonoBehaviour, IPointerUpHandler
     public Image itemIcon;
     public Text itemText;
 
+    public float doubleClickSecond = 0.25f;
+    private bool isOneClick = false;
+    private double Timer = 0;
+
     private void Start()
     {
         itemIcon.color = new Color(255, 255, 255, 0);    
@@ -18,7 +22,7 @@ public class Slot : MonoBehaviour, IPointerUpHandler
 
     private void Update()
     {
-        itemText.GetComponent<Text>().text = "Test";
+         itemText.GetComponent<Text>().text = "Test";
     }
 
     public void UpdateSlotUI()
@@ -38,11 +42,30 @@ public class Slot : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(item!=null)
+        if (isOneClick && ((Time.time - Timer) > doubleClickSecond))
         {
-            bool isUse = item.Use();
-            if(isUse)
-                Inventory.Instance.RemoveItem(slotNum);
+            isOneClick = false;
         }
+
+        if (!isOneClick)
+        {
+              Timer = Time.time;
+              isOneClick = true;
+        }
+        else if (isOneClick && ((Time.time - Timer) < doubleClickSecond))
+        {
+           if (item != null)
+           {
+             bool isUse = item.Use();
+               if (isUse)
+                 Inventory.Instance.RemoveItem(slotNum);
+           }
+
+            isOneClick = false;
+        }
+        
+
+
     }
+
 }
