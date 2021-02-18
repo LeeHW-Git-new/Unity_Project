@@ -17,7 +17,7 @@ public class Slot : MonoBehaviour, IPointerUpHandler
 
     private void Start()
     {
-        itemIcon.color = new Color(255, 255, 255, 0);    
+        itemIcon.color = new Color(255, 255, 255, 0);
     }
 
     private void Update()
@@ -27,7 +27,6 @@ public class Slot : MonoBehaviour, IPointerUpHandler
 
     public void UpdateSlotUI()
     {
-
         itemIcon.color = new Color(itemIcon.color.r, itemIcon.color.g, itemIcon.color.b, 1.0f);
         itemIcon.sprite = item.itemImage;
         itemIcon.gameObject.SetActive(true);
@@ -60,12 +59,8 @@ public class Slot : MonoBehaviour, IPointerUpHandler
                if (isUse)
                  Inventory.Instance.RemoveItem(slotNum);
            }
-
             isOneClick = false;
         }
-        
-
-
     }
 
 }

@@ -317,3 +317,4 @@ MonoBehaviour:
     efts: []
   itemIcon: {fileID: 896313526298010564}
   itemText: {fileID: 118958643601450807}
+  doubleClickSecond: 0.25
