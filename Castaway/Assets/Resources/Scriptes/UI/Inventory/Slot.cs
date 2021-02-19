@@ -21,8 +21,8 @@ public class Slot : MonoBehaviour
     { 
         slot = new Stack<Item>();  
         isSlot = false;
-       // float Size = text.gameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.x;
-        //text.fontSize = (int)(Size * 0.5f);
+        float Size = text.gameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.x;
+        text.fontSize = (int)(Size * 5f);
         ItemImg = transform.GetChild(0).GetComponent<Image>();
     }
 
@@ -51,11 +51,11 @@ public class Slot : MonoBehaviour
 
     public void UpdateInfo(bool isSlot, Sprite sprite)
     {
-        Debug.Log("itemIn");
         SetSlots(isSlot);
         ItemImg.color = new Color(255, 255, 255, 1.0f);
         ItemImg.sprite = sprite;
-       // text.text = slot.Count > 1 ? slot.Count.ToString() : "";
+        text.text = slot.Count > 1 ? slot.Count.ToString() : "";
+        Debug.Log(text.text);
         // ItemIO.SaveDate();  
     }
 }
