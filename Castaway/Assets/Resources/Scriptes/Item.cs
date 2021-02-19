@@ -10,6 +10,8 @@ public class Item : MonoBehaviour
     public Sprite defaultImg;
     public int maxCnt;
 
+    public int healHP;
+
     public int weaponNo;
     private void AddItem()
     {
@@ -23,6 +25,7 @@ public class Item : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 10)
@@ -31,5 +34,18 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void UseItem()
+    {
+
+        switch(this.type)
+        {
+            case Item.TYPE.HP:
+                GameManager.Instance.playerHP += this.healHP;
+                break;
+
+            case Item.TYPE.Weapon:
+                break;
+        }
+    }
 
 }

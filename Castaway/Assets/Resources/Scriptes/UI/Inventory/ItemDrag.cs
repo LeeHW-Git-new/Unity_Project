@@ -23,6 +23,7 @@ public class ItemDrag : MonoBehaviour
 
         if(Input.GetMouseButtonDown(1))
         {
+            slot.ItemReturn().UseItem();
             slot.ItemUse();
             return;
         }

@@ -3050,6 +3050,7 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
   maxCnt: 2
+  healHP: 5
   weaponNo: 0
 --- !u!54 &123602093
 Rigidbody:
@@ -47351,6 +47352,7 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
   maxCnt: 2
+  healHP: 5
   weaponNo: 0
 --- !u!54 &789926401
 Rigidbody:
@@ -70565,6 +70567,7 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
   maxCnt: 2
+  healHP: 5
   weaponNo: 0
 --- !u!54 &1180362101
 Rigidbody:
@@ -76769,6 +76772,7 @@ MonoBehaviour:
   type: 1
   defaultImg: {fileID: 21300000, guid: fe302f7494ad8aa46accdf98ec446d57, type: 3}
   maxCnt: 0
+  healHP: 0
   weaponNo: 0
 --- !u!4 &1241287517
 Transform:
@@ -89035,6 +89039,7 @@ MonoBehaviour:
   type: 1
   defaultImg: {fileID: 21300000, guid: 772bbebaf227a3a47b57806582090ddd, type: 3}
   maxCnt: 0
+  healHP: 0
   weaponNo: 1
 --- !u!4 &1592586436
 Transform:

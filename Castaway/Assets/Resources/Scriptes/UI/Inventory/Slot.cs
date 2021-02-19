@@ -38,14 +38,11 @@ public class Slot : MonoBehaviour
             return;
 
         if (slot.Count == 1)
-        {
+        {      
             slot.Clear();
             UpdateInfo(false, DefaultImg);
             return;
         }
-
-
-
 
         slot.Pop();
         UpdateInfo(isSlot, ItemImg.sprite);
