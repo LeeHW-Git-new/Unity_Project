@@ -14,11 +14,11 @@ public class Slot : MonoBehaviour
 
     public Item ItemReturn() { return slot.Peek(); } 
     public bool ItemMax(Item item) { return ItemReturn().maxCnt > slot.Count; }  
-    public bool isSlots() { return isSlot; } 
+    public bool isSlots() { return isSlot; }
 
-    void Start()
-    { 
-        slot = new Stack<Item>();  
+    private void Awake()
+    {
+        slot = new Stack<Item>();
         isSlot = false;
         float Size = text.gameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.x;
         text.fontSize = (int)(Size * 2f);

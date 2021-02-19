@@ -24,6 +24,24 @@ public class Inventory : MonoBehaviour
         sInstance = this;
 
 
+       
+
+    }
+    #endregion
+    public GameObject parent;
+    public List<GameObject> AllSlot;    
+    public RectTransform InvenRect;     
+    public GameObject OriginSlot;       
+
+    public float slotSize;              
+    public float slotGap;               
+    public float slotCountX;            
+    public float slotCountY;            
+
+    private float EmptySlot;
+
+    private void Start()
+    {
         for (int y = 0; y < slotCountY; y++)
         {
             for (int x = 0; x < slotCountX; x++)
@@ -36,7 +54,7 @@ public class Inventory : MonoBehaviour
                 RectTransform item = slot.transform.GetChild(0).GetComponent<RectTransform>();
 
                 slot.name = "slot_" + y + "_" + x;
-                slotRect.transform.SetParent(transform);
+                slotRect.transform.SetParent(parent.transform);
 
                 slotRect.localScale = Vector3.one;
                 slotRect.localPosition = new Vector3((slotSize * x) + (slotGap * (x + 1)),
@@ -54,20 +72,8 @@ public class Inventory : MonoBehaviour
             }
         }
         EmptySlot = AllSlot.Count;
-
     }
-    #endregion
 
-    public List<GameObject> AllSlot;    
-    public RectTransform InvenRect;     
-    public GameObject OriginSlot;       
-
-    public float slotSize;              
-    public float slotGap;               
-    public float slotCountX;            
-    public float slotCountY;            
-
-    private float EmptySlot;            
 
     public bool AddItem(Item item)
     {
