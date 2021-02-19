@@ -51,18 +51,19 @@ public class Inventory : MonoBehaviour
                 RectTransform item = slot.transform.GetChild(0).GetComponent<RectTransform>();
 
                 slot.name = "slot_" + y + "_" + x;
-                slot.transform.parent = transform;
+                slotRect.transform.SetParent(transform);
 
+                slotRect.localScale = Vector3.one;
                 slotRect.localPosition = new Vector3((slotSize * x) + (slotGap * (x + 1)),
                                                    -((slotSize * y) + (slotGap * (y + 1))),
                                                       0);
 
-                slotRect.localScale = Vector3.one;
-                slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize); 
-                slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);   
+                
+                slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
+                slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 
-                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize - slotSize * 0.3f); 
-                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize - slotSize * 0.3f);   
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize - slotSize * 0.3f);
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize - slotSize * 0.3f);
 
                 AllSlot.Add(slot);
             }
