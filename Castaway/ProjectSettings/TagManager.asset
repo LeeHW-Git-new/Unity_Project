@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Animal
   - Weapon
+  - TempImg
   layers:
   - Default
   - TransparentFX

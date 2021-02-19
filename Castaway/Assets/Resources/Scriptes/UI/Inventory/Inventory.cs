@@ -103,4 +103,97 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
+
+    public Slot NearDisSlot(Vector3 Pos)
+    {
+        float min = 10000f;
+        int index = -1;
+        int cnt = AllSlot.Count;
+        for(int i = 0; i<cnt; i++)
+        {
+            Vector2 sPos = AllSlot[i].transform.GetChild(0).position;
+            float dis = Vector2.Distance(sPos, Pos);
+
+            if(dis< min)
+            {
+                min = dis;
+                index = i;
+            }
+        }
+
+        if (min > slotSize)
+            return null;
+
+        return AllSlot[index].GetComponent<Slot>();
+    }
+
+    public void Swap(Slot slot, Vector3 pos)
+    {
+        Slot firstSlot = NearDisSlot(pos);
+
+        if(slot == firstSlot||firstSlot == null)
+        {
+            slot.UpdateInfo(true, slot.slot.Peek().defaultImg);
+            return;
+        }
+
+        if(!firstSlot.isSlots())
+        {
+            Swap(firstSlot, slot);
+        }
+        else
+        {
+            int cnt = slot.slot.Count;
+            Item item = slot.slot.Peek();
+            Stack<Item> temp = new Stack<Item>();
+
+            {
+                for(int i =0; i<cnt; i++)
+                {
+                    temp.Push(item);
+                }
+
+                slot.slot.Clear();
+            }
+
+            Swap(slot, firstSlot);
+
+            {
+                cnt = temp.Count;
+                item = temp.Peek();
+
+                for(int i = 0; i<cnt; i++)
+                {
+                    firstSlot.slot.Push(item);
+                }
+
+                firstSlot.UpdateInfo(true, temp.Peek().defaultImg);
+            }
+        }
+    }
+
+    private void Swap(Slot tempSlot, Slot fullSlot)
+    {
+        int cnt = fullSlot.slot.Count;
+        Item item = fullSlot.slot.Peek();
+
+        for(int i = 0; i< cnt; i++)
+        {
+            if(tempSlot != null)
+            {
+                tempSlot.slot.Push(item);
+            }
+        }
+
+        if(tempSlot != null)
+        {
+            tempSlot.UpdateInfo(true, fullSlot.ItemReturn().defaultImg);
+        }
+
+        fullSlot.slot.Clear();
+        fullSlot.UpdateInfo(false, fullSlot.DefaultImg);
+    }
+
+
+
 }

@@ -15,7 +15,6 @@ public class Slot : MonoBehaviour
     public Item ItemReturn() { return slot.Peek(); } 
     public bool ItemMax(Item item) { return ItemReturn().maxCnt > slot.Count; }  
     public bool isSlots() { return isSlot; } 
-    public void SetSlots(bool isSlot) { this.isSlot = isSlot; }
 
     void Start()
     { 
@@ -51,8 +50,7 @@ public class Slot : MonoBehaviour
 
     public void UpdateInfo(bool isSlot, Sprite sprite)
     {
-        SetSlots(isSlot);
-        ItemImg.color = new Color(255, 255, 255, 1.0f);
+        this.isSlot = isSlot;
         ItemImg.sprite = sprite;
         text.text = slot.Count > 1 ? slot.Count.ToString() : "";
         Debug.Log(text.text);
