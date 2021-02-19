@@ -22,22 +22,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         sInstance = this;
-    }
-    #endregion
 
-    public List<GameObject> AllSlot;    
-    public RectTransform InvenRect;     
-    public GameObject OriginSlot;       
-
-    public float slotSize;              
-    public float slotGap;               
-    public float slotCountX;            
-    public float slotCountY;            
-
-    private float EmptySlot;            
-
-    private void Start()
-    {
 
         for (int y = 0; y < slotCountY; y++)
         {
@@ -58,7 +43,7 @@ public class Inventory : MonoBehaviour
                                                    -((slotSize * y) + (slotGap * (y + 1))),
                                                       0);
 
-                
+
                 slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
                 slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 
@@ -69,7 +54,20 @@ public class Inventory : MonoBehaviour
             }
         }
         EmptySlot = AllSlot.Count;
+
     }
+    #endregion
+
+    public List<GameObject> AllSlot;    
+    public RectTransform InvenRect;     
+    public GameObject OriginSlot;       
+
+    public float slotSize;              
+    public float slotGap;               
+    public float slotCountX;            
+    public float slotCountY;            
+
+    private float EmptySlot;            
 
     public bool AddItem(Item item)
     {

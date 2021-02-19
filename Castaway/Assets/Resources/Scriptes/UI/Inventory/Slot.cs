@@ -21,7 +21,7 @@ public class Slot : MonoBehaviour
         slot = new Stack<Item>();  
         isSlot = false;
         float Size = text.gameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.x;
-        text.fontSize = (int)(Size * 5f);
+        text.fontSize = (int)(Size * 2f);
         ItemImg = transform.GetChild(0).GetComponent<Image>();
     }
 
@@ -53,7 +53,6 @@ public class Slot : MonoBehaviour
         this.isSlot = isSlot;
         ItemImg.sprite = sprite;
         text.text = slot.Count > 1 ? slot.Count.ToString() : "";
-        Debug.Log(text.text);
         // ItemIO.SaveDate();  
     }
 }

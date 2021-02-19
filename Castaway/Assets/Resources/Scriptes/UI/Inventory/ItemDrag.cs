@@ -13,7 +13,7 @@ public class ItemDrag : MonoBehaviour
     {
         slot = GetComponent<Slot>();
         img = GameObject.FindGameObjectWithTag("TempImg").transform;
-        emptyImg = img.GetComponent<Image>(); 
+        emptyImg = img.GetComponent<Image>();
     }
 
 
@@ -33,7 +33,6 @@ public class ItemDrag : MonoBehaviour
         float imgSize = slot.transform.GetComponent<RectTransform>().sizeDelta.x;
         emptyImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, imgSize);
         emptyImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, imgSize);
-
         emptyImg.sprite = slot.ItemReturn().defaultImg;
         img.transform.position = Input.mousePosition;
         slot.UpdateInfo(true, slot.DefaultImg);
