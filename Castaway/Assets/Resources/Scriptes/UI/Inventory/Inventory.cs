@@ -71,35 +71,38 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item item)
     {
-        int slotCount = AllSlot.Count;
-
-        for (int i = 0; i < slotCount; i++)
+        if (item.type != Item.TYPE.Weapon)
         {
-            Slot slot = AllSlot[i].GetComponent<Slot>();
+            int slotCount = AllSlot.Count;
 
-            if (!slot.isSlots())
-                continue;
-
-
-            if (slot.ItemReturn().type == item.type && slot.ItemMax(item))
+            for (int i = 0; i < slotCount; i++)
             {
+                Slot slot = AllSlot[i].GetComponent<Slot>();
+
+                if (!slot.isSlots())
+                    continue;
+
+
+                if (slot.ItemReturn().type == item.type && slot.ItemMax(item))
+                {
+                    slot.AddItem(item);
+                    return true;
+                }
+            }
+
+            for (int i = 0; i < slotCount; i++)
+            {
+                Slot slot = AllSlot[i].GetComponent<Slot>();
+
+                if (slot.isSlots())
+                    continue;
+
                 slot.AddItem(item);
                 return true;
             }
+            return false;
         }
-
-        for (int i = 0; i < slotCount; i++)
-        {
-            Slot slot = AllSlot[i].GetComponent<Slot>();
-
-            if (slot.isSlots())
-                continue;
-
-            slot.AddItem(item);
-            return true;
-        }
-
-        return false;
+         return false;
     }
 
     public Slot NearDisSlot(Vector3 Pos)

@@ -16,7 +16,6 @@ public class ItemDrag : MonoBehaviour
         emptyImg = img.GetComponent<Image>();
     }
 
-
     public void Down()
     {
         if (!slot.isSlots())

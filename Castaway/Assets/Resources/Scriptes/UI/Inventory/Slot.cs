@@ -44,6 +44,9 @@ public class Slot : MonoBehaviour
             return;
         }
 
+
+
+
         slot.Pop();
         UpdateInfo(isSlot, ItemImg.sprite);
     }

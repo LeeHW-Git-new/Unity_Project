@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
     public Sprite defaultImg;
     public int maxCnt;
 
+    public int weaponNo;
     private void AddItem()
     {
         if(!Inventory.Instance.AddItem(this))

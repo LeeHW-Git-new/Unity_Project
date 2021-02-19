@@ -176,9 +176,14 @@ public class Player : MonoBehaviour
         {
             if(NearWeapon.tag == "Weapon")
             {
-                Weapon item = NearWeapon.GetComponent<Weapon>();
-                int WeaponIndex = item.value;
+                //Weapon item = NearWeapon.GetComponent<Weapon>();
+                //int WeaponIndex = item.value;
+                //hasWeapons[WeaponIndex] = true;
+
+                Item item = NearWeapon.GetComponent<Item>();
+                int WeaponIndex = item.weaponNo;
                 hasWeapons[WeaponIndex] = true;
+
 
                 Destroy(NearWeapon);
             }
