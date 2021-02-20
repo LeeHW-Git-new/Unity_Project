@@ -21,7 +21,8 @@ public class DBtest : MonoBehaviour
 
     private void Start()
     {
-        DatabaseInsert("Insert into test(USERNUMBER, ID, NICKNAME) VALUES(4, \"파블로\", \"에스코와르\")");
+        // DatabaseInsert("Insert into test(USERNUMBER, ID, NICKNAME) VALUES(4, \"파블로\", \"에스코와르\")");
+        DBConnectionCheck();
         DataBaseRead("Select * From test");
     }
 
