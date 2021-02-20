@@ -22,12 +22,9 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         sInstance = this;
-
-
-       
-
     }
     #endregion
+
     public GameObject parent;
     public List<GameObject> AllSlot;    
     public RectTransform InvenRect;     
@@ -60,7 +57,6 @@ public class Inventory : MonoBehaviour
                 slotRect.localPosition = new Vector3((slotSize * x) + (slotGap * (x + 1)),
                                                    -((slotSize * y) + (slotGap * (y + 1))),
                                                       0);
-
 
                 slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
                 slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);

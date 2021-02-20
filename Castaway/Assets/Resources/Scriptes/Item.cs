@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
     {
         if(!Inventory.Instance.AddItem(this))
         {
-            Debug.Log("inventory full");
+           // Debug.Log("inventory full");
         }
         else
         {
