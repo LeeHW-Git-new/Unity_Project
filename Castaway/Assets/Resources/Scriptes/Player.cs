@@ -83,12 +83,22 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetTrigger("Fishing");
+            if(EquipWeaponIndex == -1)
+            {
+                return;
+            }
+            if(EquipWeaponIndex == 0)
+            {
+                animator.SetTrigger("Logging");
+            }
+            else if(EquipWeaponIndex == 1)
+            {
+                animator.SetTrigger("Attack");
+            }
         }
 
         if(Input.GetMouseButtonDown(1))
         {
-            animator.SetTrigger("Logging");
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
