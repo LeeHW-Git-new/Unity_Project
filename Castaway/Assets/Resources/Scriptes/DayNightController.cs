@@ -70,6 +70,12 @@ namespace BoatAttack
             {
                 SetTimeOfDay(time);
             }
+
+            if (time < 1)
+                time += 0.01f*Time.deltaTime;
+            else if(time >1)
+                time = 0;
+
         }
 
         /// <summary>
