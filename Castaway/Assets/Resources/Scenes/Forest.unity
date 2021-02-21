@@ -3018,7 +3018,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018815883, y: -0.6671792, z: 0.6052729, w: 0.43377715}
+  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3127,6 +3127,7 @@ MonoBehaviour:
   maxCnt: 1
   healHP: 5
   weaponNo: 0
+  itemName: 
 --- !u!54 &123602093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48090,6 +48091,7 @@ MonoBehaviour:
   maxCnt: 1
   healHP: 5
   weaponNo: 0
+  itemName: 
 --- !u!54 &789926401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -71798,6 +71800,7 @@ MonoBehaviour:
   maxCnt: 1
   healHP: 5
   weaponNo: 0
+  itemName: 
 --- !u!54 &1180362101
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78121,7 +78124,8 @@ MonoBehaviour:
   defaultImg: {fileID: 21300000, guid: fe302f7494ad8aa46accdf98ec446d57, type: 3}
   maxCnt: 0
   healHP: 0
-  weaponNo: 0
+  weaponNo: 1
+  itemName: 
 --- !u!4 &1241287517
 Transform:
   m_ObjectHideFlags: 0
@@ -84267,7 +84271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45353332
+  time: 0.4502
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
@@ -90574,7 +90578,8 @@ MonoBehaviour:
   defaultImg: {fileID: 21300000, guid: 772bbebaf227a3a47b57806582090ddd, type: 3}
   maxCnt: 0
   healHP: 0
-  weaponNo: 1
+  weaponNo: 0
+  itemName: 
 --- !u!4 &1592586436
 Transform:
   m_ObjectHideFlags: 0

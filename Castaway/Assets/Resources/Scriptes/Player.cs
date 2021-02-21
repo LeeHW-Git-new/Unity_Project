@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float rotSpeed = 360f;
 
     bool Fishing = false;
+    bool Logging = false;
 
     bool Item = false;
 
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
 
     private void CharacterControl_Slerp()
     {
-        if(!Fishing)
+        if (!Logging)
         {
             Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
                 0,
@@ -97,15 +98,19 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButtonDown(1))
-        {
-        }
-
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
         {
             Fishing = true;
         }
-        else Fishing = false;
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Axe"))
+        {
+            Logging = true;
+        }
+        else
+        {
+            Fishing = false;
+            Logging = false;
+        }
     }
 
     private void TryRun()
@@ -143,7 +148,6 @@ public class Player : MonoBehaviour
     }
     void GetInput()
     {
-
         CharacterControl_Slerp();
         TryRun();
         Fishing_Animation();
