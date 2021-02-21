@@ -25,6 +25,8 @@ public class Slot : MonoBehaviour
         ItemImg = transform.GetChild(0).GetComponent<Image>();
     }
 
+
+
     public void AddItem(Item item)
     {
         slot.Push(item);
@@ -53,6 +55,6 @@ public class Slot : MonoBehaviour
         this.isSlot = isSlot;
         ItemImg.sprite = sprite;
         text.text = slot.Count > 1 ? slot.Count.ToString() : "";
-        // ItemIO.SaveDate();  
+        ItemIO.SaveData();  
     }
 }

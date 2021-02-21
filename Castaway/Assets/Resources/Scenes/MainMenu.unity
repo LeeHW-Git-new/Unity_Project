@@ -5183,7 +5183,7 @@ GameObject:
   - component: {fileID: 1355548023}
   - component: {fileID: 1355548022}
   m_Layer: 0
-  m_Name: PlayScene
+  m_Name: MainMenuScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
