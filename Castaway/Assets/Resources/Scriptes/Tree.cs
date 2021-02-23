@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
+    public GameObject DropItem;
     public int TreeHP = 3;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Tree : MonoBehaviour
 
     void Destruction()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        DropItem.SetActive(true);
     }
 }
