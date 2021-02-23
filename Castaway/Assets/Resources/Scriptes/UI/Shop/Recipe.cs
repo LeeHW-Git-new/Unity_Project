@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Recipe : ScriptableObject
 {
     public Sprite sprite;
+    public Sprite foodImage;
     public Recipe food1; 
     public Recipe food2;
 

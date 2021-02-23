@@ -2943,7 +2943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018679587, y: -0.66736937, z: 0.60506326, w: 0.43378302}
+  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -57652,7 +57652,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143708, guid: 08208045eb4d573489ecf67cbdbb592a, type: 3}
       propertyPath: m_Name
-      value: CookingFireplace
+      value: BonfireMesh
       objectReference: {fileID: 0}
     - target: {fileID: 461044, guid: 08208045eb4d573489ecf67cbdbb592a, type: 3}
       propertyPath: m_RootOrder
@@ -81839,8 +81839,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394954269}
+  - component: {fileID: 1394954270}
   m_Layer: 0
-  m_Name: Cook
+  m_Name: ' Bonfire'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81861,6 +81862,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394954270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394954268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928fcce549ba704c9c4673b9d3f6846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 1234121179}
+  cookUI: {fileID: 185426674}
+  inventoryUI: {fileID: 605471625}
 --- !u!1001 &1398888354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84234,7 +84250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45176664
+  time: 0.45009997
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
