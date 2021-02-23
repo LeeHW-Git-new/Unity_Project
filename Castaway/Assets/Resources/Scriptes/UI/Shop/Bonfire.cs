@@ -26,6 +26,12 @@ public class Bonfire : MonoBehaviour
         else
         {
             interactionUI.SetActive(false);
+            if(bCookUI == true)
+            {
+                bCookUI = !bCookUI;
+                cookUI.SetActive(bCookUI);
+                inventoryUI.SetActive(bCookUI);
+            }
         }
         
     }
