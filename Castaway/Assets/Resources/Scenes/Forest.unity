@@ -2943,7 +2943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.05700279, y: -0.6111923, z: 0.6617608, w: 0.4304269}
+  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4425,7 +4425,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185426675}
-  - component: {fileID: 185426676}
   m_Layer: 5
   m_Name: CookUI
   m_TagString: Untagged
@@ -4454,26 +4453,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &185426676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185426674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b500789807e0a14eba8a67f7b378802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 953471493}
-  AllSlot: []
-  InvenRect: {fileID: 953471494}
-  OriginSlot: {fileID: 5402041213839925080, guid: a8d109769ba62d343b044312c410f9a2, type: 3}
-  slotSize: 30
-  slotGap: 1
-  slotCountX: 1
-  slotCountY: 4
 --- !u!1 &187222453
 GameObject:
   m_ObjectHideFlags: 0
@@ -84254,7 +84233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.47841224
+  time: 0.45009997
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
