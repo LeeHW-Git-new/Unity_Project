@@ -35,7 +35,6 @@ public class Inventory : MonoBehaviour
     public float slotCountX;            
     public float slotCountY;            
 
-    private float EmptySlot;
 
     private void Start()
     {
@@ -67,7 +66,6 @@ public class Inventory : MonoBehaviour
                 AllSlot.Add(slot);
             }
         }
-        EmptySlot = AllSlot.Count;
     }
 
 

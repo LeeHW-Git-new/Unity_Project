@@ -16,7 +16,6 @@ public class GameUI : MonoBehaviour
     public RingMenu MainMenuPrfab;
     protected RingMenu MainMenuInstance;
 
-
     private string BtnName;
 
     public GameObject settingUI;
