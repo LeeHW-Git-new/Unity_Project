@@ -45,14 +45,9 @@ public class Item : MonoBehaviour
     }
     private void AddItem()
     {
-        if(!Inventory.Instance.AddItem(this))
-        {
-           // Debug.Log("inventory full");
-        }
-        else
-        {
+        if(Inventory.Instance.AddItem(this))
             gameObject.SetActive(false);
-        }
+
     }
 
 

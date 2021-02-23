@@ -54,7 +54,7 @@ public class GameUI : MonoBehaviour
         }
 
 
-        if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||
+        if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||Input.GetKeyDown(KeyCode.Escape) ||
             (settingUI.activeSelf&&Input.GetKeyDown(KeyCode.Escape)))
         {
             activeSettingUI = !activeSettingUI;

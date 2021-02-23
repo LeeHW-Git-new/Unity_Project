@@ -56,6 +56,5 @@ public class Slot : MonoBehaviour
         this.isSlot = isSlot;
         ItemImg.sprite = sprite;
         text.text = slot.Count > 1 ? slot.Count.ToString() : "";
-        ItemIO.SaveData();  
     }
 }

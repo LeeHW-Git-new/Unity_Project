@@ -102,7 +102,7 @@ public class Inventory : MonoBehaviour
                 slot.AddItem(item);
                 return true;
             }
-            return false;
+            //return false;
         }
          return false;
     }
