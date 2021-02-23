@@ -6,11 +6,23 @@ using UnityEngine.EventSystems;
 
 public class Grill : MonoBehaviour
 {
-    private string BtnName;
+    private Recipe selectRecipe;
+
+    public Image mainSlot;
+    public Image subSlotL;
+    public Image subSlotR;
+
     private void SelectRecipe()
     {
-        Debug.Log("Click");
+        selectRecipe = EventSystem.current.currentSelectedGameObject.GetComponent<RecipeBtn>().recipe;
+
+        mainSlot.sprite = selectRecipe.sprite;
+        subSlotL.sprite = selectRecipe.food1.sprite;
+        subSlotR.sprite = selectRecipe.food2.sprite;
+
     }
+
+
 
 
 }
