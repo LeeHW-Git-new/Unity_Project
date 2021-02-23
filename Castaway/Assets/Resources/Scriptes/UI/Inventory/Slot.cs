@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour
 {
     public Stack<Item> slot;  
-    public Text text;       
+    public Text text;
+    private int textSize = 30;
     public Sprite DefaultImg; 
+
 
     private Image ItemImg;
     private bool isSlot;    
@@ -20,8 +22,7 @@ public class Slot : MonoBehaviour
     {
         slot = new Stack<Item>();
         isSlot = false;
-        float Size = text.gameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.x;
-        text.fontSize = (int)(Size * 2f);
+        text.fontSize = textSize;
         ItemImg = transform.GetChild(0).GetComponent<Image>();
     }
 

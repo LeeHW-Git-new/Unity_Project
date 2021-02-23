@@ -1,4 +1,5 @@
 <ItemDB>
   <Item slotNumber="0" Name="Cube (3)" Count="2" MaxCount="4" />
   <Item slotNumber="1" Name="Cube (4)" Count="2" MaxCount="2" />
+  <Item slotNumber="2" Name="Cube (2)" Count="2" MaxCount="5" />
 </ItemDB>
