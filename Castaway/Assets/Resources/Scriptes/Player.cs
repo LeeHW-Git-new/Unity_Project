@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
 
-    bool Fishing = false;
+    //bool Fishing = false;
     bool Logging = false;
+
+    public bool Axeing = false;
 
     bool Item = false;
 
@@ -51,12 +53,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         GetInput();
-        //CharacterControl_Slerp();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         Interation();
-        Swap();
-        //Fishing_Animation();
-        //TryRun();
         StartCoroutine(HPbar());
 
     }
@@ -91,6 +89,7 @@ public class Player : MonoBehaviour
             if(EquipWeaponIndex == 0)
             {
                 animator.SetTrigger("Logging");
+                Axeing = true;
             }
             else if(EquipWeaponIndex == 1)
             {
@@ -100,7 +99,7 @@ public class Player : MonoBehaviour
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
         {
-            Fishing = true;
+            //Fishing = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Axe"))
         {
@@ -108,7 +107,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Fishing = false;
+            //Fishing = false;
             Logging = false;
         }
     }
@@ -151,6 +150,7 @@ public class Player : MonoBehaviour
         CharacterControl_Slerp();
         TryRun();
         Fishing_Animation();
+        Swap();
         Item = Input.GetButtonDown("Interation");
 
         sDown1 = Input.GetButtonDown("Swap1");
@@ -190,10 +190,6 @@ public class Player : MonoBehaviour
         {
             if(NearWeapon.tag == "Weapon")
             {
-                //Weapon item = NearWeapon.GetComponent<Weapon>();
-                //int WeaponIndex = item.value;
-                //hasWeapons[WeaponIndex] = true;
-
                 Item item = NearWeapon.GetComponent<Item>();
                 int WeaponIndex = item.weaponNo;
                 hasWeapons[WeaponIndex] = true;
