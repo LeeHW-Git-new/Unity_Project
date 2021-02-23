@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Recipe : MonoBehaviour
+
+[CreateAssetMenu(fileName ="Recipes", menuName ="Scriptable Object/Recipe Data", order = int.MaxValue)]
+public class Recipe : ScriptableObject
 {
-    public string recipeName;
-
-    public Sprite recipeImg;
-    public GameObject food_L;
-    public GameObject food_R;
-
-    private Vector2 recipePosition;
-
-    private void Awake()
-    {
-        this.GetComponent<Image>().sprite = recipeImg;
-        recipePosition = this.transform.position;
-    }
-
+    public Sprite sprite;
+    public Recipe food1; 
+    public Recipe food2;
 
 }
+
+// grill 
+// script -> void (Recipe)
