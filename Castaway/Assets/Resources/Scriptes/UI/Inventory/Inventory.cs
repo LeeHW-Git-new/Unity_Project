@@ -85,7 +85,7 @@ public class Inventory : MonoBehaviour
                     continue;
 
 
-                if (slot.ItemReturn().type == item.type && slot.ItemMax(item))
+                if (slot.ItemReturn().itemName == item.itemName && slot.ItemMax(item))
                 {
                     slot.AddItem(item);
                     return true;
