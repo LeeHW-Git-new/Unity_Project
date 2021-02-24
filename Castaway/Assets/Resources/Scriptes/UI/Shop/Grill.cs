@@ -18,8 +18,6 @@ public class Grill : MonoBehaviour
     {
         FoodCheck();
     }
-
-
     private void SelectRecipe()
     {
         selectRecipe = EventSystem.current.currentSelectedGameObject.GetComponent<RecipeBtn>().recipe;

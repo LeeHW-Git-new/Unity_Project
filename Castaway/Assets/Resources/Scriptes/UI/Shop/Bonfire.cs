@@ -21,7 +21,6 @@ public class Bonfire : MonoBehaviour
             {
                 bCookUI = !bCookUI;
                 cookUI.SetActive(bCookUI);
-                inventoryUI.SetActive(bCookUI);
             }
         }
         else
@@ -31,7 +30,6 @@ public class Bonfire : MonoBehaviour
             {
                 bCookUI = !bCookUI;
                 cookUI.SetActive(bCookUI);
-                inventoryUI.SetActive(bCookUI);
             }
         }
         
