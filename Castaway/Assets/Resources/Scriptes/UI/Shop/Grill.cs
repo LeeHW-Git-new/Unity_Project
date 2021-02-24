@@ -13,6 +13,14 @@ public class Grill : MonoBehaviour
     public GameObject subSlotR;
 
     private bool cookingCheck = false;
+
+    private void Update()
+    {
+        FoodCheck();
+        Cooking();
+    }
+
+
     private void SelectRecipe()
     {
         selectRecipe = EventSystem.current.currentSelectedGameObject.GetComponent<RecipeBtn>().recipe;
@@ -28,18 +36,16 @@ public class Grill : MonoBehaviour
         subSlotR.GetComponent<Image>().sprite = selectRecipe.food2.mainFood.GetComponent<Item>().defaultImg;
         subSlotR.GetComponent<Item>().itemName = selectRecipe.food2.mainFood.GetComponent<Item>().itemName;
         subSlotR.GetComponent<Item>().no = selectRecipe.food2.mainFood.GetComponent<Item>().no;
-
-        FoodCheck();
     }
 
 
     private void FoodCheck()
     {
         int slotCnt = Inventory.Instance.AllSlot.Count;
-        int foodCntL = 0;
-        int foodCntR = 0;
+        bool foodCntL = false;
+        bool foodCntR = false;
 
-        for(int i = 0; i< slotCnt; i++)
+        for (int i = 0; i< slotCnt; i++)
         {
             Slot slot = Inventory.Instance.AllSlot[i].GetComponent<Slot>();
 
@@ -49,37 +55,60 @@ public class Grill : MonoBehaviour
 
             if (slot.ItemReturn().no == subSlotL.GetComponent<Item>().no)
             {
-                foodCntL += 1;
+                foodCntL = true;
+            }
+            
+            if (slot.ItemReturn().no == subSlotR.GetComponent<Item>().no)
+            {
+                foodCntR = true;             
             }
 
-            if(slot.ItemReturn().no == subSlotR.GetComponent<Item>().no)
-            {
-                foodCntR += 1;
-            }
             
         }
 
-        if(foodCntL == 1 && foodCntR == 1)
+        if(foodCntL)
+        {
+            subSlotL.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+        }
+        else
+        {
+            subSlotL.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+        }
+
+        if (foodCntR)
+        {
+            subSlotR.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+        }
+        else
+        {
+            subSlotR.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+        }
+
+
+        if (foodCntL && foodCntR)
         {
             cookingCheck = true;
-            subSlotL.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-            subSlotR.GetComponent<Image>().color = new Color(255, 255, 255, 255);
         }
         else
         {
             cookingCheck = false;
-            subSlotL.GetComponent<Image>().color = new Color(255, 255, 255, 100);
-            subSlotR.GetComponent<Image>().color = new Color(255, 255, 255, 100);
         }
-
-        Debug.Log(cookingCheck);
 
     }
 
 
-    private void Cooking(bool cookingCheck)
+    private void Cooking()
     {
+        if(cookingCheck)
+        {
+            Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
 
+
+        }
+        else
+        {
+            Debug.Log("false");
+        }
 
 
     }
