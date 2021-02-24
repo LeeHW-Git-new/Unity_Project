@@ -27,10 +27,11 @@ public class Tree : MonoBehaviour
             if (collision.gameObject.layer == 9)
             {
                 {
-                    TreeHP--;
+                    Invoke("AttackTree", 3);
+                    //TreeHP--;
                     if(TreeHP <= 0)
                     {
-                       
+                        //Invoke("Destruction", 3);
                         Destruction();
                     }
                     
@@ -40,6 +41,11 @@ public class Tree : MonoBehaviour
             }
             GameObject.Find("Player").GetComponent<Player>().Axeing = false;
         }
+    }
+
+    void AttackTree()
+    {
+        TreeHP--;
     }
 
     void Destruction()
