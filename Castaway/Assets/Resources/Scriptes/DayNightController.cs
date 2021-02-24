@@ -72,7 +72,7 @@ namespace BoatAttack
             }
 
             if (time < 1)
-                time += 0.005f*Time.deltaTime;
+                time += 0.001f*Time.deltaTime;
             else if(time >1)
                 time = 0;
 

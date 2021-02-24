@@ -13,6 +13,7 @@ public class Bonfire : MonoBehaviour
     private bool bCookUI = false;
     private void Update()
     {
+        
         if (Vector3.Distance(playerPosition.transform.position, this.transform.position)<3.5f)
         {
             interactionUI.SetActive(true);

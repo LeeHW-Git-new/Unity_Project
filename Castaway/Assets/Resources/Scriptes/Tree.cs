@@ -30,10 +30,13 @@ public class Tree : MonoBehaviour
                     TreeHP--;
                     if(TreeHP <= 0)
                     {
+                       
                         Destruction();
                     }
+                    
                     Debug.Log(TreeHP);
                 }
+
             }
             GameObject.Find("Player").GetComponent<Player>().Axeing = false;
         }

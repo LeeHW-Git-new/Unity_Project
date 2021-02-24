@@ -2992,7 +2992,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.75
     m_Bias: 0.05
     m_NormalBias: 0.05
     m_NearPlane: 0.2
@@ -3039,7 +3039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
+  m_LocalRotation: {x: 0.019024843, y: -0.6668876, z: 0.6055943, w: 0.43376803}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4542,7 +4542,7 @@ RectTransform:
   - {fileID: 1995837037}
   - {fileID: 257165165}
   m_Father: {fileID: 2124397732}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5668,6 +5668,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 973367a14a6b64a4cb0b7a7c14d0d2c7, type: 3}
   - {fileID: 8300000, guid: 249a72f25092e6647a95aecbb517eae6, type: 3}
   - {fileID: 8300000, guid: 3795424edfd36a94da745b4790b0c321, type: 3}
+  - {fileID: 8300000, guid: d80cb119308846b4f903b0c3baf6e6cd, type: 3}
+  - {fileID: 8300000, guid: e729580f4496de646bf31064d87fd752, type: 3}
+  - {fileID: 8300000, guid: 1af5d763621decf4abe75bc48d9a495f, type: 3}
+  - {fileID: 8300000, guid: d8c952b04df50e84abbcb9ff099b229d, type: 3}
   ChangingSpeed: 0
 --- !u!4 &235401271
 Transform:
@@ -46308,7 +46312,7 @@ RectTransform:
   m_Children:
   - {fileID: 605471626}
   m_Father: {fileID: 2124397732}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -84349,7 +84353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45009997
+  time: 0.45046696
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
@@ -126887,8 +126891,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 185426675}
   - {fileID: 730983670}
+  - {fileID: 185426675}
   - {fileID: 236370967}
   - {fileID: 677537600}
   - {fileID: 934383771}

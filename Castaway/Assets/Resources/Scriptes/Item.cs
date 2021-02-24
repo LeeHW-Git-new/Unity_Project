@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public enum TYPE { HP, Weapon , Recipe}
+    public enum TYPE { HP, Weapon}
 
     public TYPE type;
     public Sprite defaultImg;
@@ -26,9 +26,6 @@ public class Item : MonoBehaviour
                 type = TYPE.Weapon;
                 break;
 
-            case "Recipe":
-                type = TYPE.Recipe;
-                break;
         }
 
         this.itemName = name;
@@ -73,9 +70,6 @@ public class Item : MonoBehaviour
                 break;
 
             case Item.TYPE.Weapon:
-                break;
-
-            case Item.TYPE.Recipe:
                 break;
         }
     }
