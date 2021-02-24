@@ -6,8 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="Recipes", menuName ="Scriptable Object/Recipe Data", order = int.MaxValue)]
 public class Recipe : ScriptableObject
 {
-    public Sprite sprite;
-    public Sprite foodImage;
+    public GameObject mainFood;
     public Recipe food1; 
     public Recipe food2;
 

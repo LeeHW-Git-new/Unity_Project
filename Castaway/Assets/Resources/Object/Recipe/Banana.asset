@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ed645b8347edf41bfca5003bb9415b, type: 3}
   m_Name: Banana
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 4c265f346c5265440a985b4923be7cf5, type: 3}
+  mainFood: {fileID: 7811965401083285024, guid: 353e3d1f842859042b22737cdaa1e5eb, type: 3}
   food1: {fileID: 0}
   food2: {fileID: 0}

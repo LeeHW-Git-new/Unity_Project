@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
 
     public int healHP;
 
-    public int weaponNo;
+    public int no;
     public string itemName;
     public void Init(string name, int maxCnt)
     {

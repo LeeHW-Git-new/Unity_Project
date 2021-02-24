@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ed645b8347edf41bfca5003bb9415b, type: 3}
   m_Name: Beet
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 73aa63da94634704a9213271330842f4, type: 3}
+  mainFood: {fileID: 1765002699966186963, guid: 562bd92249e4d3943b58fd3bd6404cdf, type: 3}
   food1: {fileID: 0}
   food2: {fileID: 0}

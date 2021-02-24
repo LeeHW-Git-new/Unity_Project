@@ -9,9 +9,8 @@ public class RecipeBtn : MonoBehaviour
 
     private void Start()
     {
-        this.GetComponent<Image>().sprite = recipe.sprite;
+        this.GetComponent<Image>().sprite = recipe.mainFood.GetComponent<Item>().defaultImg;
     }
 
     
-
 }
