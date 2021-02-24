@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6361089253344228637
+--- !u!1 &7941490829353158183
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6483844784247576599}
-  - component: {fileID: 1619394800549198578}
-  - component: {fileID: 4418466493129995328}
-  - component: {fileID: 5849047493413897097}
-  - component: {fileID: 1652112828740310516}
-  - component: {fileID: 4874592034693192470}
+  - component: {fileID: 7941490829353158189}
+  - component: {fileID: 7941490829353158188}
+  - component: {fileID: 7941490829353158179}
+  - component: {fileID: 7941490829353158178}
+  - component: {fileID: 7941490829353158177}
+  - component: {fileID: 7941490829353158176}
   m_Layer: 0
-  m_Name: Soup
+  m_Name: Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6483844784247576599
+--- !u!4 &7941490829353158189
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.1, y: 2.2, z: 20.6}
+  m_LocalPosition: {x: -20.52, y: 2.2, z: 21.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1619394800549198578
+--- !u!33 &7941490829353158188
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4418466493129995328
+--- !u!23 &7941490829353158179
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,26 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5849047493413897097
+--- !u!65 &7941490829353158178
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1652112828740310516
+--- !u!54 &7941490829353158177
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -113,21 +113,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4874592034693192470
+--- !u!114 &7941490829353158176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361089253344228637}
+  m_GameObject: {fileID: 7941490829353158183}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 678e8d5c103018441ad5169f639803c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  defaultImg: {fileID: 21300000, guid: 6d25db79f34244b48918fb16f0d6c24d, type: 3}
+  defaultImg: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
   maxCnt: 5
-  healHP: 10
-  no: 10
-  itemName: soup
+  healHP: 5
+  no: 3
+  itemName: potato

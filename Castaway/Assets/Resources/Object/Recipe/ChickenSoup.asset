@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ed645b8347edf41bfca5003bb9415b, type: 3}
   m_Name: ChickenSoup
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2ec294076c9ef4846a13c0187fa94682, type: 3}
-  foodImage: {fileID: 21300000, guid: 6d79d6d0e0058764bb7cf650394f1632, type: 3}
+  mainFood: {fileID: 5229131307253823595, guid: 5e939748040662f4ab630953ae653a27, type: 3}
   food1: {fileID: 11400000, guid: cd7f9fa07a452904fb6f4a801eb93940, type: 2}
   food2: {fileID: 11400000, guid: 18a597cb814cfca4c88e00dce368ece2, type: 2}

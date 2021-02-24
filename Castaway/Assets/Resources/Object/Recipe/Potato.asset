@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ed645b8347edf41bfca5003bb9415b, type: 3}
   m_Name: Potato
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 81105c0f0e10f6f46b55ea6b7a185122, type: 3}
+  mainFood: {fileID: 7941490829353158183, guid: 3c6c88094b5201d43ad1ae9d84ebdab8, type: 3}
   food1: {fileID: 0}
   food2: {fileID: 0}
