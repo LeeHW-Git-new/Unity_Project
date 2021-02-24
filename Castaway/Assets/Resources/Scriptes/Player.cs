@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    float TickTime;
+    float DestroyTime = 1.5f;
     private Rigidbody characterRigidbody;
 
     public GameObject[] Weapons;
