@@ -97,6 +97,10 @@ public class Player : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
             }
+            else if (EquipWeaponIndex == 2)
+            {
+                animator.SetTrigger("Fishing");
+            }
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
