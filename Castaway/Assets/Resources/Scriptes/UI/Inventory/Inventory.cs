@@ -68,6 +68,22 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void DeleteItem(Item item)
+    {
+        int slotCount = AllSlot.Count;
+        for(int i = 0; i<slotCount; i++)
+        {
+            Slot slot = AllSlot[i].GetComponent<Slot>();
+            if (!slot.isSlots())
+                continue;
+
+            if(slot.ItemReturn().no == item.no)
+            {
+                slot.ItemUse();
+            }
+
+        }
+    }
 
     public bool AddItem(Item item)
     {
@@ -104,6 +120,8 @@ public class Inventory : MonoBehaviour
         }
          return false;
     }
+
+
 
     public Slot NearDisSlot(Vector3 Pos)
     {

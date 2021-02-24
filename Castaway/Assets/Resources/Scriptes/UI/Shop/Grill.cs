@@ -17,7 +17,6 @@ public class Grill : MonoBehaviour
     private void Update()
     {
         FoodCheck();
-        Cooking();
     }
 
 
@@ -26,7 +25,9 @@ public class Grill : MonoBehaviour
         selectRecipe = EventSystem.current.currentSelectedGameObject.GetComponent<RecipeBtn>().recipe;
 
         mainSlot.GetComponent<Image>().sprite = selectRecipe.mainFood.GetComponent<Item>().defaultImg;
+        mainSlot.GetComponent<Item>().defaultImg = selectRecipe.mainFood.GetComponent<Item>().defaultImg;
         mainSlot.GetComponent<Item>().itemName = selectRecipe.mainFood.GetComponent<Item>().itemName;
+        mainSlot.GetComponent<Item>().healHP = selectRecipe.mainFood.GetComponent<Item>().healHP;
         mainSlot.GetComponent<Item>().no = selectRecipe.mainFood.GetComponent<Item>().no;
 
         subSlotL.GetComponent<Image>().sprite = selectRecipe.food1.mainFood.GetComponent<Item>().defaultImg;
@@ -99,17 +100,15 @@ public class Grill : MonoBehaviour
 
     private void Cooking()
     {
-        if(cookingCheck)
+        int slotCnt = Inventory.Instance.AllSlot.Count;
+
+        if (cookingCheck)
         {
             Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
 
-
+            Inventory.Instance.DeleteItem(subSlotL.GetComponent<Item>());
+            Inventory.Instance.DeleteItem(subSlotR.GetComponent<Item>());
         }
-        else
-        {
-            Debug.Log("false");
-        }
-
 
     }
 
