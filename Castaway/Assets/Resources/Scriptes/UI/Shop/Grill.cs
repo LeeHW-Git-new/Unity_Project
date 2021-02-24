@@ -102,10 +102,9 @@ public class Grill : MonoBehaviour
 
         if (cookingCheck)
         {
-            Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
-
             Inventory.Instance.DeleteItem(subSlotL.GetComponent<Item>());
             Inventory.Instance.DeleteItem(subSlotR.GetComponent<Item>());
+            Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
         }
 
     }
