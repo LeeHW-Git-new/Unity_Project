@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
             if(EquipWeaponIndex == 0)
             {
                 animator.SetTrigger("Logging");
-                Axeing = true;
+                //Axeing = true;
             }
             else if(EquipWeaponIndex == 1)
             {
@@ -103,9 +103,12 @@ public class Player : MonoBehaviour
         {
             //Fishing = true;
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Axe"))
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Axe") &&
+                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f && 
+                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
         {
-            Logging = true;
+            Debug.Log("Axeing");
+            Axeing = true;
         }
         else
         {
