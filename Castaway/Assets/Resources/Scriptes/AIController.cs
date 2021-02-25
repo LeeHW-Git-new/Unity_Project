@@ -39,12 +39,20 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
-        if(!isDead)
+        if((transform.position - GameObject.Find("Player").transform.position).magnitude<5f)
         {
-            Move();
-            Rotation();
-            ElapseTime();
+            Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 1f);
+            transform.position += direction * 2f * Time.deltaTime;
         }
+
+
+        //if(!isDead)
+        //{
+        //    Move();
+        //    Rotation();
+        //    ElapseTime();
+        //}
     }
     private void Move()
     {
