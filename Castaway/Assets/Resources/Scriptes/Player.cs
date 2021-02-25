@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     private Rigidbody characterRigidbody;
     private CharacterController pcController;
     private Animator animator;
-    private int isHand = -1;
 
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
@@ -44,7 +43,6 @@ public class Player : MonoBehaviour
     {
         CharacterControl_Slerp();
         Run();
-        AnimationState(isHand);
     }
 
 
@@ -88,7 +86,7 @@ public class Player : MonoBehaviour
     public void EquipSwap(int selectNO)
     {
         Transform hand = playerHand.transform;
-        isHand = selectNO;
+
         for (int i = 0; i < hand.childCount; i++)
         {
             if (i == selectNO)
@@ -100,13 +98,14 @@ public class Player : MonoBehaviour
                 hand.GetChild(i).gameObject.SetActive(false);
             }
         }
+
     }
 
-    private void AnimationState(int isHand)
+    private void AnimationState(int selectNO)
     {
         if (Input.GetMouseButtonDown(0))
         {
-            switch(isHand)
+            switch(selectNO)
             {
                 case -1:
                     return;
@@ -129,6 +128,7 @@ public class Player : MonoBehaviour
                     break;
             }
         }
+
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
         {

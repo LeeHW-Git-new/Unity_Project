@@ -47,10 +47,10 @@ public class GameUI : MonoBehaviour
             MainMenuPrfab.gameObject.SetActive(true);
             //MainMenuInstance.callback = MenuClick;
         }
-        else if(Input.GetKeyUp(KeyCode.Q))
-        {
-            MainMenuPrfab.gameObject.SetActive(false);
-        }
+        //else if(Input.GetKeyUp(KeyCode.Q))
+        //{
+        //    MainMenuPrfab.gameObject.SetActive(false);
+        //}
 
 
         if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||Input.GetKeyDown(KeyCode.Escape) ||
