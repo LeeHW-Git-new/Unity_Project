@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
 
+    public Image hpBar;
     //bool Fishing = false;
     bool Logging = false;
 
@@ -31,17 +32,11 @@ public class Player : MonoBehaviour
     bool sDown2;
     bool sDown3;
 
-    CharacterController pcController;
+    private CharacterController pcController;
+    private Animator animator;
 
-    Animator animator;
-
-    public Image hpBar;
-
-
-    void Wepon_Interation()
-    {
-
-    }
+    public int selecNO = -1;
+    
 
     void Start()
     {
@@ -58,8 +53,47 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         Interation();
         StartCoroutine(HPbar());
+        EquipSwap();
+    }
+
+    private void EquipSwap()
+    {
+        switch(selecNO)
+        {
+            case 0:
+
+                break;
+
+            case 1:
+
+                break;
+
+            case 2:
+
+                break;
+
+            case 3:
+
+                break;
+        }
+    }
+
+    void GetInput()
+    {
+        CharacterControl_Slerp();
+        Run();
+        AnimationState();
+        Swap();
+        Item = Input.GetButtonDown("Interation");
+
+        sDown1 = Input.GetButtonDown("Swap1");
+        sDown2 = Input.GetButtonDown("Swap2");
+        sDown3 = Input.GetButtonDown("Swap3");
 
     }
+
+
+
 
     private void CharacterControl_Slerp()
     {
@@ -80,25 +114,27 @@ public class Player : MonoBehaviour
             pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
         }
     }
-    private void Fishing_Animation()
+    private void AnimationState()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if(EquipWeaponIndex == -1)
+            switch(EquipWeaponIndex)
             {
-                return;
-            }
-            if(EquipWeaponIndex == 0)
-            {
-                animator.SetTrigger("Logging");
-            }
-            else if(EquipWeaponIndex == 1)
-            {
-                animator.SetTrigger("Attack");
-            }
-            else if (EquipWeaponIndex == 2)
-            {
-                animator.SetTrigger("Fishing");
+                case -1:
+                    return;
+
+                case 0:
+                    animator.SetTrigger("Logging");
+                    break;
+
+                case 1:
+                    animator.SetTrigger("Attack");
+                    break;
+
+                case 2:
+                    animator.SetTrigger("Fishing");
+                    break;
+
             }
         }
 
@@ -110,7 +146,6 @@ public class Player : MonoBehaviour
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f && 
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
         {
-            Debug.Log("Axeing");
             Axeing = true;
         }
         else
@@ -120,52 +155,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TryRun()
-    {
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            Run();
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            RunCancle();
-        }
-    }
-
     private void Run()
     {
-        animator.SetBool("Runing", true);
-        ApplySpeed = RunSpeed;
-    }
-
-    private void RunCancle()
-    {
-        animator.SetBool("Runing", false);
-        ApplySpeed = MoveSpeed;
-    }
-
-    IEnumerator HPbar()
-    {
-        while (GameManager.Instance.playerHP >= 0)
+        if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            GameManager.Instance.playerHP -= 0.1f*Time.deltaTime;
-            hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
-            yield return new WaitForSeconds(5f);
+            animator.SetBool("Runing", true);
+            ApplySpeed = RunSpeed;
+        }
+        
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetBool("Runing", false);
+            ApplySpeed = MoveSpeed;
         }
     }
-    void GetInput()
-    {
-        CharacterControl_Slerp();
-        TryRun();
-        Fishing_Animation();
-        Swap();
-        Item = Input.GetButtonDown("Interation");
 
-        sDown1 = Input.GetButtonDown("Swap1");
-        sDown2 = Input.GetButtonDown("Swap2");
-        sDown3 = Input.GetButtonDown("Swap3");
-
-    }
 
     void Swap()
     {
@@ -191,6 +195,18 @@ public class Player : MonoBehaviour
             EquipWeapon.SetActive(true);
         }
     }
+
+
+    IEnumerator HPbar()
+    {
+        while (GameManager.Instance.playerHP >= 0)
+        {
+            GameManager.Instance.playerHP -= 0.1f * Time.deltaTime;
+            hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
 
 
     void Interation()

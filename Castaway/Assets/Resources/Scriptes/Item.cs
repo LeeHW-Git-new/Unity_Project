@@ -67,6 +67,7 @@ public class Item : MonoBehaviour
         {
             case Item.TYPE.HP:
                 GameManager.Instance.playerHP += this.healHP;
+                SoundManager.Instance.PlaySFX("FoodEat");
                 break;
 
             case Item.TYPE.Weapon:
