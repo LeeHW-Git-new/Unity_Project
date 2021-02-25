@@ -48,7 +48,7 @@ public class RingMenu : MonoBehaviour
         float stepLength = 360f / Data.Elements.Length;
         float mouseAngle = NormlizeAngle(Vector3.SignedAngle(Vector3.up, Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2), Vector3.forward) + stepLength / 2f);
         int activeElement = (int)(mouseAngle / stepLength);
-        Debug.Log(activeElement);
+
         for (int i = 0; i < Data.Elements.Length; i++)
         {
             if (i == activeElement)
@@ -63,9 +63,8 @@ public class RingMenu : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject.Find("Player").GetComponent<Player>().hasWeapons[activeElement] = true;
-
             gameObject.SetActive(false);
+            GameObject.Find("Player").GetComponent<Player>().EquipSwap(activeElement);
         }
 
 

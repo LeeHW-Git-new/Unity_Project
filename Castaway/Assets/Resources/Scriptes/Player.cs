@@ -35,8 +35,7 @@ public class Player : MonoBehaviour
     private CharacterController pcController;
     private Animator animator;
 
-    public int selecNO = -1;
-    
+    public GameObject playerHand;
 
     void Start()
     {
@@ -53,29 +52,14 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         Interation();
         StartCoroutine(HPbar());
-        EquipSwap();
     }
 
-    private void EquipSwap()
+    public void EquipSwap(int selectNO)
     {
-        switch(selecNO)
-        {
-            case 0:
 
-                break;
+         playerHand.transform.GetChild(selectNO).gameObject.SetActive(true);
 
-            case 1:
 
-                break;
-
-            case 2:
-
-                break;
-
-            case 3:
-
-                break;
-        }
     }
 
     void GetInput()

@@ -3039,7 +3039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
+  m_LocalRotation: {x: 0.019748202, y: -0.6658767, z: 0.60670555, w: 0.4337357}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -28803,6 +28803,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 417926, guid: b3801009a5a4e6c4db81b7283812a1df, type: 3}
   m_PrefabInstance: {fileID: 1333131058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &438758359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100038, guid: fc4463bd7987e984dae6b60d3da957c3, type: 3}
+  m_PrefabInstance: {fileID: 513292641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &442091057
 GameObject:
@@ -63922,7 +63927,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 48aa91007690d654d92f7ac8930f6287, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48aa91007690d654d92f7ac8930f6287, type: 3}
       propertyPath: m_LocalScale.x
@@ -77726,8 +77731,9 @@ MonoBehaviour:
   hasWeapons: 000000
   ApplySpeed: 6
   rotSpeed: 360
-  Axeing: 0
   hpBar: {fileID: 1197708894}
+  Axeing: 0
+  playerHand: {fileID: 438758359}
 --- !u!143 &1234121180
 CharacterController:
   m_ObjectHideFlags: 0
@@ -84182,7 +84188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45002
+  time: 0.45090416
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
@@ -128105,7 +128111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 242867293170479417, guid: d7f904e6330c33f41823f2e41ad1f1f2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 242867293170479417, guid: d7f904e6330c33f41823f2e41ad1f1f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -128252,7 +128258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973990596132729822, guid: 6d1f2a95e610f8a4795a1d35694d1f3e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2973990596132729822, guid: 6d1f2a95e610f8a4795a1d35694d1f3e, type: 3}
       propertyPath: m_LocalPosition.x
