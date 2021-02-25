@@ -39,11 +39,12 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
-        if((transform.position - GameObject.Find("Player").transform.position).magnitude<5f)
+        if ((transform.position - GameObject.Find("Player").transform.position).magnitude<5f)
         {
             Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 1f);
-            transform.position += direction * 2f * Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 2.5f);
+            anim.SetBool("Walk", true);
+            transform.position += direction * 3f * Time.deltaTime;
         }
 
 
