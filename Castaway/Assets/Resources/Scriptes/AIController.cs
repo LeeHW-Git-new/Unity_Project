@@ -46,6 +46,10 @@ public class AIController : MonoBehaviour
             anim.SetBool("Walk", true);
             transform.position += direction * 3f * Time.deltaTime;
         }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
 
 
         //if(!isDead)
@@ -55,6 +59,8 @@ public class AIController : MonoBehaviour
         //    ElapseTime();
         //}
     }
+
+
     private void Move()
     {
        if(isWalking || isRunning)
