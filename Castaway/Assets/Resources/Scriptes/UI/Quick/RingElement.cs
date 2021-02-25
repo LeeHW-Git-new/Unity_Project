@@ -7,5 +7,4 @@ public class RingElement : ScriptableObject
 {
     public string Name;
     public Sprite Icon;
-    public Ring NextRing; 
 }

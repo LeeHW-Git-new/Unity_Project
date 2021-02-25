@@ -48,7 +48,7 @@ public class RingMenu : MonoBehaviour
         float stepLength = 360f / Data.Elements.Length;
         float mouseAngle = NormlizeAngle(Vector3.SignedAngle(Vector3.up, Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2), Vector3.forward) + stepLength / 2f);
         int activeElement = (int)(mouseAngle / stepLength);
-
+        Debug.Log(activeElement);
         for (int i = 0; i < Data.Elements.Length; i++)
         {
             if (i == activeElement)
@@ -61,31 +61,12 @@ public class RingMenu : MonoBehaviour
             }
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    string path = Path + "/" + Data.Elements[activeElement].Name;
-        //    if(Data.Elements[activeElement].NextRing != null)
-        //    {
-        //        RingMenu newSubRing = Instantiate(gameObject, transform.parent).GetComponent<RingMenu>();
-        //        newSubRing.Parent = this;
-        //        for(int i = 0; i<newSubRing.transform.childCount; i++)
-        //        {
-        //            Destroy(newSubRing.transform.GetChild(i).gameObject);
-        //        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject.Find("Player").GetComponent<Player>().hasWeapons[activeElement] = true;
 
-        //        newSubRing.Data = Data.Elements[activeElement].NextRing;
-        //        newSubRing.Path = path;
-        //        newSubRing.callback = callback;
-
-        //    }
-        //    else
-        //    {
-        //        callback.Invoke(path);
-        //    }
-
-
-        //    gameObject.SetActive(false);
-        //}
+            gameObject.SetActive(false);
+        }
 
 
     }

@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
             if(EquipWeaponIndex == 0)
             {
                 animator.SetTrigger("Logging");
-                //Axeing = true;
             }
             else if(EquipWeaponIndex == 1)
             {
@@ -192,6 +191,7 @@ public class Player : MonoBehaviour
             EquipWeapon.SetActive(true);
         }
     }
+
 
     void Interation()
     {
