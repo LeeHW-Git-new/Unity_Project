@@ -22,13 +22,14 @@ public class Player : MonoBehaviour
     bool Logging = false;
     public bool Axeing = false;
 
+    public int selectNO = -1;
+
     void Start()
     {
         GameManager.Instance.playerHP = 100f;
         characterRigidbody = GetComponent<Rigidbody>();
         pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-
     }
 
     void Update()
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour
         GetInput();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         StartCoroutine(HPbar());
+        EquipSwap();
+        AnimationState();
     }
 
 
@@ -83,7 +86,7 @@ public class Player : MonoBehaviour
 
 
 
-    public void EquipSwap(int selectNO)
+    public void EquipSwap()
     {
         Transform hand = playerHand.transform;
 
@@ -101,34 +104,39 @@ public class Player : MonoBehaviour
 
     }
 
-    private void AnimationState(int selectNO)
+    private void AnimationState()
     {
+       
         if (Input.GetMouseButtonDown(0))
         {
-            switch(selectNO)
+            switch (selectNO)
             {
                 case -1:
                     return;
 
                 case 0:
-                    animator.SetTrigger("Fishing");             
+                    animator.SetTrigger("Fishing");
                     break;
 
                 case 1:
-                    animator.SetTrigger("Logging");         
+                    animator.SetBool("Axeing", true);
                     break;
 
                 case 2:
-                    
+
                     break;
 
 
                 case 3:
-                    animator.SetTrigger("Attack");
+                   // animator.SetBool("Axeing", true);
                     break;
             }
-        }
 
+        }
+        else
+        {
+           // animator.SetBool("Axeing", false);
+        }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
         {
@@ -139,12 +147,14 @@ public class Player : MonoBehaviour
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
         {
             Axeing = true;
+            animator.SetBool("Axeing", false);
         }
         else
         {
             //Fishing = false;
             Logging = false;
         }
+
     }
 
 
