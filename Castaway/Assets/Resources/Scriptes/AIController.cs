@@ -79,7 +79,7 @@ public class AIController : MonoBehaviour
         isRunning = false;
 
         applySpeed = movementSpeed;
-        direction.Set(0f, Random.Range(0f, 360f), 0f);
+        direction.Set(0f, -90f, 0f);
 
         RandomAction();
     }
@@ -98,7 +98,8 @@ public class AIController : MonoBehaviour
 
     public void Run(Vector3 _targetPos)
     {
-        direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+        transform.RotateAround(Vector3.up, 180f);
+
 
         CurrentTime = RunTime;
         isWalking = false;
