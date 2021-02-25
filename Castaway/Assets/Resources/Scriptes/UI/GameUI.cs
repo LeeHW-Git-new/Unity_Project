@@ -42,15 +42,13 @@ public class GameUI : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
+        if(Input.GetKeyDown(KeyCode.Q) &&
+           ( GameObject.Find("Player").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.8f ||
+            GameObject.Find("Player").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Wait")))
+        {        
             MainMenuPrfab.gameObject.SetActive(true);
-            //MainMenuInstance.callback = MenuClick;
         }
-        //else if(Input.GetKeyUp(KeyCode.Q))
-        //{
-        //    MainMenuPrfab.gameObject.SetActive(false);
-        //}
+
 
 
         if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||Input.GetKeyDown(KeyCode.Escape) ||

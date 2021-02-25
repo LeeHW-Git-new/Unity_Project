@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     bool Logging = false;
     public bool Axeing = false;
 
-    public int selectNO = -1;
+    public int selectNo = -1;
 
     void Start()
     {
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < hand.childCount; i++)
         {
-            if (i == selectNO)
+            if (i == selectNo)
             {
                 hand.GetChild(i).gameObject.SetActive(true);
             }
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0))
         {
-            switch (selectNO)
+            switch (selectNo)
             {
                 case -1:
                     return;
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
                     break;
 
                 case 1:
-                    animator.SetBool("Axeing", true);
+                    animator.SetTrigger("Axeing");
                     break;
 
                 case 2:
@@ -128,14 +128,10 @@ public class Player : MonoBehaviour
 
 
                 case 3:
-                   // animator.SetBool("Axeing", true);
+                    animator.SetTrigger("Attack");
                     break;
             }
 
-        }
-        else
-        {
-           // animator.SetBool("Axeing", false);
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
@@ -147,7 +143,6 @@ public class Player : MonoBehaviour
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
         {
             Axeing = true;
-            animator.SetBool("Axeing", false);
         }
         else
         {
