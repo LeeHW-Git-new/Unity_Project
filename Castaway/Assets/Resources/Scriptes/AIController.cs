@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class AIController : MonoBehaviour
 {
 
     public float movementSpeed = 3;
-    public int HP;
+    public float runSpeed;
+    private float applySpeed;
+
+    public int HP = 3;
     public float jumpForce = 300;
-    //
-    public float timeBeforeNextJump = 1.2f;
-    private float canJump = 0f;
-    //
 
     private Vector3 direction;
 
+    private bool isRunning;
+    private bool isDead;
     private bool isAction;
     private bool isWalking;
 
     [SerializeField] private float WalkTime;
     [SerializeField] private float WaitTime;
+    [SerializeField] private float RunTime;
     private float CurrentTime;
 
     [SerializeField] private Animator anim;
@@ -37,20 +39,23 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Rotation();
-        ElapseTime();
+        if(!isDead)
+        {
+            Move();
+            Rotation();
+            ElapseTime();
+        }
     }
     private void Move()
     {
-       if(isWalking)
+       if(isWalking || isRunning)
         {
-            rb.MovePosition(transform.position + transform.forward * movementSpeed * Time.deltaTime);
+            rb.MovePosition(transform.position + transform.forward * applySpeed * Time.deltaTime);
         }
     }
     private void Rotation()
     {
-        if(isWalking)
+        if(isWalking || isRunning)
         {
             Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
             rb.MoveRotation(Quaternion.Euler(_rotation));
@@ -68,10 +73,12 @@ public class PlayerController : MonoBehaviour
     }
     private void ReSet()
     {
-        isWalking = false;
         isAction = true;
+        isWalking = false;
         anim.SetBool("Walk", isWalking);
+        isRunning = false;
 
+        applySpeed = movementSpeed;
         direction.Set(0f, Random.Range(0f, 360f), 0f);
 
         RandomAction();
@@ -89,6 +96,36 @@ public class PlayerController : MonoBehaviour
             TryWalk();
     }
 
+    public void Run(Vector3 _targetPos)
+    {
+        direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+
+        CurrentTime = RunTime;
+        isWalking = false;
+        isRunning = true;
+        applySpeed = runSpeed;
+    }
+
+    public void Damage(int _dmg , Vector3 _targetPos)
+    {
+        if(!isDead)
+        {
+            HP -= _dmg;
+            if(HP <=0)
+            {
+                Dead();
+                return;
+            }
+            Run(_targetPos);
+        }
+    }
+    private void Dead()
+    {
+        isWalking = false;
+        isRunning = false;
+        isDead = true;
+    }
+
     private void Wait()
     {
         CurrentTime = WaitTime;
@@ -97,6 +134,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         CurrentTime = WaitTime;
+        rb.AddForce(0, jumpForce, 0);
         anim.SetTrigger("jump");
     }
     private void TryWalk()
