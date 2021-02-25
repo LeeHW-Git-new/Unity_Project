@@ -5,37 +5,23 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
-    float TickTime;
-    float DestroyTime = 1.5f;
+    private float TickTime;
+    private float DestroyTime = 1.5f;
     private Rigidbody characterRigidbody;
-
-    public GameObject[] Weapons;
-    public bool[] hasWeapons;
-    GameObject NearWeapon;
-    GameObject EquipWeapon;
-    int EquipWeaponIndex = -1;
+    private CharacterController pcController;
+    private Animator animator;
+    private int isHand = -1;
 
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
-
+    public GameObject playerHand;
     public Image hpBar;
+    
     //bool Fishing = false;
     bool Logging = false;
-
     public bool Axeing = false;
-
-    bool Item = false;
-
-    bool sDown1;
-    bool sDown2;
-    bool sDown3;
-
-    private CharacterController pcController;
-    private Animator animator;
-
-    public GameObject playerHand;
 
     void Start()
     {
@@ -50,33 +36,16 @@ public class Player : MonoBehaviour
     {
         GetInput();
         animator.SetFloat("Speed", pcController.velocity.magnitude);
-        Interation();
         StartCoroutine(HPbar());
     }
 
-    public void EquipSwap(int selectNO)
-    {
-
-         playerHand.transform.GetChild(selectNO).gameObject.SetActive(true);
-
-
-    }
 
     void GetInput()
     {
         CharacterControl_Slerp();
         Run();
-        AnimationState();
-        Swap();
-        Item = Input.GetButtonDown("Interation");
-
-        sDown1 = Input.GetButtonDown("Swap1");
-        sDown2 = Input.GetButtonDown("Swap2");
-        sDown3 = Input.GetButtonDown("Swap3");
-
+        AnimationState(isHand);
     }
-
-
 
 
     private void CharacterControl_Slerp()
@@ -98,27 +67,66 @@ public class Player : MonoBehaviour
             pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
         }
     }
-    private void AnimationState()
+
+    private void Run()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            animator.SetBool("Runing", true);
+            ApplySpeed = RunSpeed;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetBool("Runing", false);
+            ApplySpeed = MoveSpeed;
+        }
+    }
+
+
+
+    public void EquipSwap(int selectNO)
+    {
+        Transform hand = playerHand.transform;
+        isHand = selectNO;
+        for (int i = 0; i < hand.childCount; i++)
+        {
+            if (i == selectNO)
+            {
+                hand.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                hand.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void AnimationState(int isHand)
     {
         if (Input.GetMouseButtonDown(0))
         {
-            switch(EquipWeaponIndex)
+            switch(isHand)
             {
                 case -1:
                     return;
 
                 case 0:
-                    animator.SetTrigger("Logging");
+                    animator.SetTrigger("Fishing");             
                     break;
 
                 case 1:
-                    animator.SetTrigger("Attack");
+                    animator.SetTrigger("Logging");         
                     break;
 
                 case 2:
-                    animator.SetTrigger("Fishing");
+                    
                     break;
 
+
+                case 3:
+                    animator.SetTrigger("Attack");
+                    break;
             }
         }
 
@@ -139,46 +147,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Run()
-    {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            animator.SetBool("Runing", true);
-            ApplySpeed = RunSpeed;
-        }
-        
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            animator.SetBool("Runing", false);
-            ApplySpeed = MoveSpeed;
-        }
-    }
-
-
-    void Swap()
-    {
-        if (sDown1 && (!hasWeapons[0] || EquipWeaponIndex == 0))
-            return;
-        if (sDown2 && (!hasWeapons[1] || EquipWeaponIndex == 1))
-            return;
-        if (sDown3 && (!hasWeapons[2] || EquipWeaponIndex == 2))
-            return;
-
-        int WeaponIndex = -1;
-        if (sDown1) WeaponIndex = 0;
-        if (sDown2) WeaponIndex = 1;
-        if (sDown3) WeaponIndex = 2;
-        if (sDown1 || sDown2 || sDown3)
-        {
-            if(EquipWeapon != null)
-            {
-                EquipWeapon.SetActive(false);
-            }
-            EquipWeaponIndex = WeaponIndex;
-            EquipWeapon = Weapons[WeaponIndex];
-            EquipWeapon.SetActive(true);
-        }
-    }
 
 
     IEnumerator HPbar()
@@ -191,37 +159,4 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
-    void Interation()
-    {
-        if(Item && NearWeapon != null)
-        {
-            if(NearWeapon.tag == "Weapon")
-            {
-                Item item = NearWeapon.GetComponent<Item>();
-                int WeaponIndex = item.no-20;
-                hasWeapons[WeaponIndex] = true;
-
-
-                Destroy(NearWeapon);
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.tag == "Weapon")
-        {
-            NearWeapon = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Weapon")
-        {
-            NearWeapon = null;
-        }
-    }
 }
