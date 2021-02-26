@@ -43,8 +43,7 @@ public class GameUI : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.Q) &&
-           ( GameObject.Find("Player").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.8f ||
-            GameObject.Find("Player").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Wait")))
+            !GameObject.Find("Player").GetComponent<Player>().action)
         {        
             MainMenuPrfab.gameObject.SetActive(true);
         }

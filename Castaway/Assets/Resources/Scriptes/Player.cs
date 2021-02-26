@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     bool Logging = false;
     public bool Axeing = false;
 
+    public bool action = false;
+
     public int selectNo = -1;
 
     void Start()
@@ -150,6 +152,12 @@ public class Player : MonoBehaviour
             Logging = false;
         }
 
+    }
+
+    public void AnimationCheck()
+    {
+        Debug.Log(action);
+        action = !action;
     }
 
 
