@@ -113,7 +113,7 @@ public class AIController : MonoBehaviour
 
     public void Run(Vector3 _targetPos)
     {
-        transform.RotateAround(Vector3.up, 180f);
+        //transform.RotateAround(Vector3.up, 180f);
 
 
         CurrentTime = RunTime;
