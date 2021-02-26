@@ -3039,7 +3039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
+  m_LocalRotation: {x: 0.033167448, y: -0.6467735, z: 0.6270306, w: 0.43291634}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -77836,10 +77836,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ApplySpeed: 6
   rotSpeed: 360
+  selectNo: -1
+  action: 0
   playerHand: {fileID: 438758359}
   hpBar: {fileID: 1197708894}
-  Axeing: 0
-  selectNo: -1
 --- !u!143 &1234121180
 CharacterController:
   m_ObjectHideFlags: 0
@@ -79773,6 +79773,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 478814, guid: 0bd0a50299c906d49904606fc6a207a5, type: 3}
   m_PrefabInstance: {fileID: 1298339465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1301603156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 48aa91007690d654d92f7ac8930f6287, type: 3}
+  m_PrefabInstance: {fileID: 1060112079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1301603160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301603156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db22743128ecd7c4296cbc9d761d6343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1306121704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84294,7 +84311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45
+  time: 0.46083626
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
@@ -127226,10 +127243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfc9c3178865d240bbf9b3a5ec06d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPanel: {fileID: 605471625}
   slotHolder: {fileID: 1329148925}
-  MainMenuPrfab: {fileID: 934383772}
+  inventoryPanel: {fileID: 605471625}
   settingUI: {fileID: 1145526353}
+  MainMenuPrfab: {fileID: 934383772}
 --- !u!1001 &2126826764
 PrefabInstance:
   m_ObjectHideFlags: 0

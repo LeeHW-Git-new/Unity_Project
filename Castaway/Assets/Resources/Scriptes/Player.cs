@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
     public int selectNo = -1;
+    [HideInInspector]
     public bool action = false;
     public GameObject playerHand;
     public Image hpBar;
@@ -139,6 +140,11 @@ public class Player : MonoBehaviour
         Debug.Log(action);
     }
 
+
+    private void GetFish()
+    {
+        Debug.Log("Get Fish");
+    }
 
 
 
