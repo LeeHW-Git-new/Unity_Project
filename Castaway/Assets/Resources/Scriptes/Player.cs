@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
-    private float TickTime;
-    private float DestroyTime = 1.5f;
     private Rigidbody characterRigidbody;
     private CharacterController pcController;
     private Animator animator;
@@ -15,16 +13,12 @@ public class Player : MonoBehaviour
     public static float RunSpeed =10f;
     public float ApplySpeed = MoveSpeed;
     public float rotSpeed = 360f;
+    public int selectNo = -1;
+    public bool action = false;
     public GameObject playerHand;
     public Image hpBar;
-    
-    //bool Fishing = false;
 
-    public bool Axeing = false;
-    public bool action = false;
-    public int selectNo = -1;
-
-    void Start()
+    private void Start()
     {
         GameManager.Instance.playerHP = 100f;
         characterRigidbody = GetComponent<Rigidbody>();
@@ -32,22 +26,15 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        GetInput();
-        animator.SetFloat("Speed", pcController.velocity.magnitude);
-        StartCoroutine(HPbar());
-        EquipSwap();
-        AnimationState();
-    }
-
-
-    void GetInput()
+    private void Update()
     {
         CharacterControl_Slerp();
         Run();
+        animator.SetFloat("Speed", pcController.velocity.magnitude);
+        StartCoroutine(HPbar());
+        AnimationState();
+        EquipSwap();
     }
-
 
     private void CharacterControl_Slerp()
     {
@@ -105,8 +92,7 @@ public class Player : MonoBehaviour
     }
 
     private void AnimationState()
-    {
-       
+    {   
         if (Input.GetMouseButtonDown(0))
         {
             switch (selectNo)
@@ -133,18 +119,6 @@ public class Player : MonoBehaviour
             }
 
         }
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fishing"))
-        {
-            //Fishing = true;
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Axe") &&
-                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f && 
-                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
-        {
-            Axeing = true;
-        }
-
     }
 
     public void AnimationCheck()
@@ -152,8 +126,6 @@ public class Player : MonoBehaviour
         Debug.Log(action);
         action = !action;
     }
-
-
 
     IEnumerator HPbar()
     {

@@ -9,8 +9,8 @@ public class GameUI : MonoBehaviour
 {
     public GameObject slotHolder;
     public GameObject inventoryPanel;
-    public RingMenu MainMenuPrfab;
     public GameObject settingUI;
+    public RingMenu MainMenuPrfab;
 
     protected RingMenu MainMenuInstance;
 

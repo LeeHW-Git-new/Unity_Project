@@ -22,7 +22,7 @@ public class Tree : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        while(GameObject.Find("Player").GetComponent<Player>().Axeing == true)
+        while(GameObject.Find("Player").GetComponent<Player>().action == true)
         {
             if (collision.gameObject.layer == 9)
             {
@@ -39,7 +39,7 @@ public class Tree : MonoBehaviour
                 }
 
             }
-            GameObject.Find("Player").GetComponent<Player>().Axeing = false;
+            GameObject.Find("Player").GetComponent<Player>().action = false;
         }
     }
 
