@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class Tree : MonoBehaviour
 {
     public GameObject DropItem;
@@ -27,9 +27,11 @@ public class Tree : MonoBehaviour
             if (collision.gameObject.layer == 9)
             {
                 {
+
                     Invoke("AttackTree", 3);
+                    transform.DOShakePosition(2, new Vector3(0.1f, 0, 0.1f));
                     //TreeHP--;
-                    if(TreeHP <= 0)
+                    if (TreeHP <= 0)
                     {
                         //Invoke("Destruction", 3);
                         Destruction();

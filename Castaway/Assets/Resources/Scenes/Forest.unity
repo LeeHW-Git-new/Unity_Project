@@ -3039,7 +3039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.033167448, y: -0.6467735, z: 0.6270306, w: 0.43291634}
+  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -71592,8 +71592,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 740155277}
     m_Modifications:
     - target: {fileID: 140092, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      propertyPath: m_Name
+      value: Tree3_BirchYoung
       objectReference: {fileID: 0}
     - target: {fileID: 401046, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
       propertyPath: m_RootOrder
@@ -71628,9 +71628,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 401046, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401046, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401046, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343407653244590823, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
+      propertyPath: DropItem
+      value: 
+      objectReference: {fileID: 789926399}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
 --- !u!1001 &1169717048
@@ -81484,41 +81496,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 430786, guid: 222ddc03b1218f94b8023949e7775072, type: 3}
   m_PrefabInstance: {fileID: 1338106776}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1389133467 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 140092, guid: 4548fc8fae4e019418f9e5473fcce8e5, type: 3}
-  m_PrefabInstance: {fileID: 1169481693}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1389133471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389133467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a62023320cf26b4395f18dc4d6c6477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DropItem: {fileID: 789926399}
-  TreeHP: 3
---- !u!54 &1389133472
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389133467}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &1389215725
 GameObject:
   m_ObjectHideFlags: 0
@@ -84311,7 +84288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.46083626
+  time: 0.45002
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
