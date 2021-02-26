@@ -28,12 +28,18 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        CharacterControl_Slerp();
-        Run();
-        animator.SetFloat("Speed", pcController.velocity.magnitude);
         StartCoroutine(HPbar());
+        animator.SetFloat("Speed", pcController.velocity.magnitude);
         AnimationState();
         EquipSwap();
+        GetInput();
+    }
+
+
+    private void GetInput()
+    {
+        CharacterControl_Slerp();
+        Run();
     }
 
     private void CharacterControl_Slerp()
@@ -121,11 +127,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AnimationCheck()
+    private void AnimationOn()
     {
+        action = true;
         Debug.Log(action);
-        action = !action;
     }
+
+    private void AnimationOff()
+    {
+        action = false;
+        Debug.Log(action);
+    }
+
+
+
 
     IEnumerator HPbar()
     {

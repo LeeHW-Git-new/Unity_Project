@@ -447,14 +447,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: AnimationCheck
+        functionName: AnimationOn
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: AnimationCheck
+        functionName: AnimationOff
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
         floatParameter: 0
