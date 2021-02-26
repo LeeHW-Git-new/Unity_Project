@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
                     break;
 
                 case 2:
-                    animator.SetTrigger("Digging");
+                    animator.SetTrigger("Picking");
                     break;
 
                 case 3:
