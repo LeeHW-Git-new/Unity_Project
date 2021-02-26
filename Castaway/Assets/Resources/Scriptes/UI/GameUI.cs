@@ -7,84 +7,65 @@ using UnityEngine.EventSystems;
 
 public class GameUI : MonoBehaviour
 {
-
-    public GameObject inventoryPanel;
-    bool activeInventory = false;
-
     public GameObject slotHolder;
-
+    public GameObject inventoryPanel;
     public RingMenu MainMenuPrfab;
+    public GameObject settingUI;
+
     protected RingMenu MainMenuInstance;
 
+    private bool activeInventory = false;
+    private bool activeSettingUI = false;
     private string BtnName;
 
-    public GameObject settingUI;
-    bool activeSettingUI = false;
-
-    private void Start()
+    private void Awake()
     {
         inventoryPanel.SetActive(activeInventory);
     }
 
 
-
     private void Update()
     {
-       
-        if( Input.GetKeyDown(KeyCode.I)||
-           (inventoryPanel.activeSelf &&Input.GetKeyDown(KeyCode.Escape))||
-            BtnName == "InventoryUIExit"||
-            BtnName == "InventoryBtn")
+        InventoryEvent();
+        QuickSlotCall();
+    }
+
+    private void InventoryEvent()
+    {
+        if (Input.GetKeyDown(KeyCode.I) ||
+          (inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape)) ||
+           BtnName == "InventoryUIExit" ||
+           BtnName == "InventoryBtn")
         {
             activeInventory = !activeInventory;
             inventoryPanel.SetActive(activeInventory);
             BtnName = "";
         }
 
-
-        if(Input.GetKeyDown(KeyCode.Q) &&
-            !GameObject.Find("Player").GetComponent<Player>().action)
-        {        
-            MainMenuPrfab.gameObject.SetActive(true);
-        }
-
-
-
-        if(BtnName == "SettingBtn" || BtnName == "SettingReturnBtn"||Input.GetKeyDown(KeyCode.Escape) ||
-            (settingUI.activeSelf&&Input.GetKeyDown(KeyCode.Escape)))
+        if (BtnName == "SettingBtn" || 
+            BtnName == "SettingReturnBtn" || 
+            Input.GetKeyDown(KeyCode.Escape) ||
+            (settingUI.activeSelf && Input.GetKeyDown(KeyCode.Escape)))
         {
             activeSettingUI = !activeSettingUI;
             settingUI.SetActive(activeSettingUI);
             BtnName = "";
         }
 
-
-
-
     }
 
-    private void MenuClick(string path)
+    private void QuickSlotCall()
     {
-       // Debug.Log(path);
-       // string[] paths = path.Split('/');
-       // GetComponent<weapon>().SetPrefab(int.Parse(paths[1]), int.Parse(paths[2]));
+        if (Input.GetKeyDown(KeyCode.Q) && !GameObject.Find("Player").GetComponent<Player>().action)
+        {
+            MainMenuPrfab.gameObject.SetActive(true);
+        }
     }
-
-
-
-    internal void SetPrefab (int v1, int v2)
-    {
-        //PrefabWeapon = weapons[v1];
-        //prefabFood = foods[v2];
-    }
-
 
     private void BtnEvent()
     {
         BtnName = EventSystem.current.currentSelectedGameObject.name;
     }
-
-
 
     private void Quit()
     {

@@ -19,11 +19,9 @@ public class Player : MonoBehaviour
     public Image hpBar;
     
     //bool Fishing = false;
-    bool Logging = false;
+
     public bool Axeing = false;
-
     public bool action = false;
-
     public int selectNo = -1;
 
     void Start()
@@ -53,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void CharacterControl_Slerp()
     {
-        if (!Logging)
+        if (!action)
         {
             Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
                 0,
@@ -145,11 +143,6 @@ public class Player : MonoBehaviour
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
         {
             Axeing = true;
-        }
-        else
-        {
-            //Fishing = false;
-            Logging = false;
         }
 
     }
