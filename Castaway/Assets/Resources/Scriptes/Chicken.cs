@@ -57,7 +57,7 @@ public class Chicken : MonoBehaviour
                             Debug.Log("플레이어가 닭 시야 내에 있습니다.");
                             Debug.DrawRay(transform.position + transform.up, _direction, Color.blue);
 
-                            theChicken.Run(_hit.transform.position);
+                            //theChicken.Run(_hit.transform.position);
                         }
                     }
                 }

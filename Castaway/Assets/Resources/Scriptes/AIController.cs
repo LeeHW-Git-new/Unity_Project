@@ -14,14 +14,12 @@ public class AIController : MonoBehaviour
 
     private Vector3 direction;
 
-    private bool isRunning;
     private bool isDead;
     private bool isAction;
     private bool isWalking;
 
     [SerializeField] private float WalkTime;
     [SerializeField] private float WaitTime;
-    [SerializeField] private float RunTime;
     private float CurrentTime;
 
     [SerializeField] private Animator anim;
@@ -52,25 +50,24 @@ public class AIController : MonoBehaviour
         }
 
 
-        //if(!isDead)
-        //{
-        //    Move();
-        //    Rotation();
-        //    ElapseTime();
-        //}
+        if (!isDead)
+        {
+            Move();
+            ElapseTime();
+        }
     }
 
 
     private void Move()
     {
-       if(isWalking || isRunning)
+       if(isWalking)
         {
             rb.MovePosition(transform.position + transform.forward * applySpeed * Time.deltaTime);
         }
     }
     private void Rotation()
     {
-        if(isWalking || isRunning)
+        if(isWalking)
         {
             Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
             rb.MoveRotation(Quaternion.Euler(_rotation));
@@ -91,10 +88,9 @@ public class AIController : MonoBehaviour
         isAction = true;
         isWalking = false;
         anim.SetBool("Walk", isWalking);
-        isRunning = false;
 
         applySpeed = movementSpeed;
-        direction.Set(0f, -90f, 0f);
+        //direction.Set(0f, -90f, 0f);
 
         RandomAction();
     }
@@ -111,17 +107,6 @@ public class AIController : MonoBehaviour
             TryWalk();
     }
 
-    public void Run(Vector3 _targetPos)
-    {
-        //transform.RotateAround(Vector3.up, 180f);
-
-
-        CurrentTime = RunTime;
-        isWalking = false;
-        isRunning = true;
-        applySpeed = runSpeed;
-    }
-
     public void Damage(int _dmg , Vector3 _targetPos)
     {
         if(!isDead)
@@ -132,13 +117,11 @@ public class AIController : MonoBehaviour
                 Dead();
                 return;
             }
-            Run(_targetPos);
         }
     }
     private void Dead()
     {
         isWalking = false;
-        isRunning = false;
         isDead = true;
     }
 
