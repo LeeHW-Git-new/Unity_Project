@@ -52,7 +52,13 @@ public class Tree : MonoBehaviour
 
     void Destruction()
     {
+        Drop();
         this.gameObject.SetActive(false);
         DropItem.SetActive(true);
+    }
+
+    void Drop()
+    {
+        Instantiate(DropItem, gameObject.transform.position,Quaternion.identity);
     }
 }

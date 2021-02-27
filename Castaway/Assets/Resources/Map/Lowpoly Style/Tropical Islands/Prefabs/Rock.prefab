@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e3690d24c9a1e4e9c9897a82b6ffb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropItem: {fileID: 0}
+  DropItem: {fileID: 3551997286430846737, guid: 88bf8033f84797d40ba4065a9a6a300e, type: 3}
   RockHP: 3
 --- !u!54 &3298922283479358281
 Rigidbody:

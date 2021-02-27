@@ -52,7 +52,6 @@ public class Item : MonoBehaviour
     {
         if(Inventory.Instance.AddItem(this))
             gameObject.SetActive(false);
-
     }
 
 

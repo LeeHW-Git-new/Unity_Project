@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2391670}
   - component: {fileID: 6448462}
   - component: {fileID: 876069733}
-  - component: {fileID: 2283219451037938284}
+  - component: {fileID: 876069735}
+  - component: {fileID: 876069734}
   m_Layer: 0
   m_Name: RockGrey1
   m_TagString: Untagged
@@ -114,7 +115,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2283219451037938284
+--- !u!65 &876069735
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.75, y: 3.23, z: 5.7}
+  m_Center: {x: 0.24, y: 0.00000047683716, z: 0}
+--- !u!114 &876069734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,5 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e3690d24c9a1e4e9c9897a82b6ffb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropItem: {fileID: 0}
+  DropItem: {fileID: 3551997286430846737, guid: 88bf8033f84797d40ba4065a9a6a300e, type: 3}
   RockHP: 3
