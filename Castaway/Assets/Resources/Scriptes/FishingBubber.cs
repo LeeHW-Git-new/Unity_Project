@@ -5,14 +5,12 @@ using UnityEngine;
 public class FishingBubber : MonoBehaviour
 {
     public Item fish;
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
-        if(other.gameObject.tag == "Water")
+        if (collision.gameObject.tag == "Water")
         {
             Debug.Log("Get Fish");
             Inventory.Instance.AddItem(fish);
         }
-
     }
 }
