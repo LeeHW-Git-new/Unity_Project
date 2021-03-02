@@ -29,7 +29,6 @@ public class Tree : MonoBehaviour
                 {
 
                     Invoke("AttackTree", 3);
-                    transform.DOShakePosition(2, new Vector3(0.1f, 0, 0.1f));
                     //TreeHP--;
                     if (TreeHP <= 0)
                     {
@@ -38,6 +37,7 @@ public class Tree : MonoBehaviour
                     }
                     
                     Debug.Log(TreeHP);
+                    transform.DOShakePosition(2, new Vector3(0.1f, 0, 0.1f));
                 }
 
             }

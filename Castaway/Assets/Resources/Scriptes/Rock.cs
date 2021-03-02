@@ -28,13 +28,13 @@ public class Rock : MonoBehaviour
             {
                 {
                     Invoke("AttackRock", 3);
-                    transform.DOShakePosition(2, new Vector3(0.1f, 0, 0.1f));
                     if (RockHP <= 0)
                     {
                         //Invoke("Destruction", 3);
                         Destruction();
                     }
                     Debug.Log(RockHP);
+                    transform.DOShakePosition(2, new Vector3(0.1f, 0, 0.1f));
                 }
             }
             GameObject.Find("Player").GetComponent<Player>().action = false;
