@@ -107,10 +107,11 @@ public class AIController : MonoBehaviour
         else if (_random == 2)
             TryWalk();
     }
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        while (GameObject.Find("Player").GetComponent<Player>().action == true)
+        if(GameObject.Find("Player").GetComponent<Player>().action == true)
         {
+            Debug.Log("Attack");
             if (collision.gameObject.layer == 8)
             {
                 HP--;
