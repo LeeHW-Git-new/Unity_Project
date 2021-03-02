@@ -121,8 +121,8 @@ public class AIController : MonoBehaviour
                     Dead();
                     return;
                 }
+                Debug.Log(HP);
             }
-            Debug.Log(HP);
         }
     }
 

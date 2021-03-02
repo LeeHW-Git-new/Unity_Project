@@ -140,13 +140,6 @@ public class Player : MonoBehaviour
     }
 
 
-    private void GetFish()
-    {
-        Debug.Log("Get Fish");
-    }
-
-
-
     IEnumerator HPbar()
     {
         while (GameManager.Instance.playerHP >= 0)
