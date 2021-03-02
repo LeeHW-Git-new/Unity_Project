@@ -98,8 +98,6 @@ public class Grill : MonoBehaviour
 
     private void Cooking()
     {
-        int slotCnt = Inventory.Instance.AllSlot.Count;
-
         if (cookingCheck)
         {
             Inventory.Instance.DeleteItem(subSlotL.GetComponent<Item>());
