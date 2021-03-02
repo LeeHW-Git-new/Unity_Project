@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
+    public GameObject DropItem;
 
     public float movementSpeed = 3;
     public float runSpeed;
@@ -39,10 +40,10 @@ public class AIController : MonoBehaviour
     {
         if ((transform.position - GameObject.Find("Player").transform.position).magnitude<5f)
         {
-            Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 2.5f);
-            anim.SetBool("Walk", true);
-            transform.position += direction * 3f * Time.deltaTime;
+            //Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 2.5f);
+            //anim.SetBool("Walk", true);
+            //transform.position += direction * 3f * Time.deltaTime;
         }
         else
         {
@@ -98,7 +99,7 @@ public class AIController : MonoBehaviour
     private void RandomAction()
     {
         int _random = Random.Range(0, 3);
-        Debug.Log(_random);
+        //Debug.Log(_random);
         if (_random == 0)
             Wait();
         else if (_random == 1)
@@ -106,23 +107,41 @@ public class AIController : MonoBehaviour
         else if (_random == 2)
             TryWalk();
     }
-
-    public void Damage(int _dmg , Vector3 _targetPos)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(!isDead)
+        while (GameObject.Find("Player").GetComponent<Player>().action == true)
         {
-            HP -= _dmg;
-            if(HP <=0)
+            if (collision.gameObject.layer == 8)
             {
-                Dead();
-                return;
+                HP--;
+                anim.SetTrigger("jump");
+                if (HP <= 0)
+                {
+                    Dead();
+                    return;
+                }
+                Debug.Log(HP);
             }
         }
+        GameObject.Find("Player").GetComponent<Player>().action = false;
     }
+    //public void Damage(int _dmg , Vector3 _targetPos)
+    //{
+    //    if(!isDead)
+    //    {
+    //        HP -= _dmg;
+    //        if(HP <=0)
+    //        {
+    //            Dead();
+    //            return;
+    //        }
+    //    }
+    //}
     private void Dead()
     {
         isWalking = false;
         isDead = true;
+        Destruction();
     }
 
     private void Wait()
@@ -142,6 +161,19 @@ public class AIController : MonoBehaviour
         isWalking = true;
         anim.SetBool("Walk", isWalking);
     }
+
+    void Destruction()
+    {
+        Drop();
+        this.gameObject.SetActive(false);
+        DropItem.SetActive(true);
+    }
+
+    private void Drop()
+    {
+        Instantiate(DropItem, gameObject.transform.position, Quaternion.identity);
+    }
+
     //void ControllPlayer()
     //{
     //    float moveHorizontal = Input.GetAxisRaw("Horizontal");
