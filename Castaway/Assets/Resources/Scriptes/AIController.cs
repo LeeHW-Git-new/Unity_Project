@@ -107,25 +107,27 @@ public class AIController : MonoBehaviour
         else if (_random == 2)
             TryWalk();
     }
-    void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if(GameObject.Find("Player").GetComponent<Player>().action == true)
+        if (GameObject.Find("Player").GetComponent<Player>().action == true)
         {
-            Debug.Log("Attack");
-            if (collision.gameObject.layer == 8)
+            if (collision.gameObject.name == "Sword")
             {
                 HP--;
-                anim.SetTrigger("jump");
+                //anim.SetTrigger("jump");
                 if (HP <= 0)
                 {
                     Dead();
                     return;
                 }
-                Debug.Log(HP);
             }
+            Debug.Log(HP);
         }
-        GameObject.Find("Player").GetComponent<Player>().action = false;
     }
+
+
+
     //public void Damage(int _dmg , Vector3 _targetPos)
     //{
     //    if(!isDead)
