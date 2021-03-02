@@ -29,11 +29,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(action);
         StartCoroutine(HPbar());
         animator.SetFloat("Speed", pcController.velocity.magnitude);
         AnimationState();
         EquipSwap();
-        GetInput();
+
+        if (!action)
+            GetInput();
     }
 
 
@@ -44,23 +47,20 @@ public class Player : MonoBehaviour
     }
 
     private void CharacterControl_Slerp()
-    {
-        if (!action)
-        {
-            Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
-                0,
-                Input.GetAxis("Vertical"));
+    { 
+      Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
+          0,
+          Input.GetAxis("Vertical"));
 
-            if (direction.sqrMagnitude > 0.01f)
-            {
-                Vector3 forward = Vector3.Slerp(transform.forward,
-                    direction,
-                    rotSpeed * Time.deltaTime /
-                    Vector3.Angle(transform.forward, direction));
-                transform.LookAt(transform.position + forward);
-            }
-            pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
-        }
+      if (direction.sqrMagnitude > 0.01f)
+      {
+          Vector3 forward = Vector3.Slerp(transform.forward,
+              direction,
+              rotSpeed * Time.deltaTime /
+              Vector3.Angle(transform.forward, direction));
+          transform.LookAt(transform.position + forward);
+      }
+      pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);     
     }
 
     private void Run()
@@ -130,13 +130,11 @@ public class Player : MonoBehaviour
     private void AnimationOn()
     {
         action = true;
-        Debug.Log(action);
     }
 
     private void AnimationOff()
     {
         action = false;
-        Debug.Log(action);
     }
 
 

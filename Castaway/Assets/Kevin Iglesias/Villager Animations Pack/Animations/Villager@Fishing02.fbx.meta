@@ -433,7 +433,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -446,6 +446,20 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: AnimationOn
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: PullRoad
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: db22743128ecd7c4296cbc9d761d6343, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: AnimationOff
         data: 
