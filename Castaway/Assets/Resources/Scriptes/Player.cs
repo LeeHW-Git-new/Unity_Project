@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     private Rigidbody characterRigidbody;
-    private CharacterController pcController;
+    //private CharacterController pcController;
     private Animator animator;
+    private NavMeshAgent navMeshAgent;
 
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
@@ -24,20 +26,20 @@ public class Player : MonoBehaviour
         action = false;
         GameManager.Instance.playerHP = 100f;
         characterRigidbody = GetComponent<Rigidbody>();
-        pcController = GetComponent<CharacterController>();
+        //pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
         Debug.Log(action);
         StartCoroutine(HPbar());
-        animator.SetFloat("Speed", pcController.velocity.magnitude);
+        //animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+
         AnimationState();
         EquipSwap();
-
-        if (!action)
-            GetInput();
+        GetInput();
     }
 
 
@@ -48,20 +50,29 @@ public class Player : MonoBehaviour
     }
 
     private void CharacterControl_Slerp()
-    { 
-      Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
+    {
+        if (!action)
+        {     
+            Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),
           0,
           Input.GetAxis("Vertical"));
 
-      if (direction.sqrMagnitude > 0.01f)
-      {
-          Vector3 forward = Vector3.Slerp(transform.forward,
-              direction,
-              rotSpeed * Time.deltaTime /
-              Vector3.Angle(transform.forward, direction));
-          transform.LookAt(transform.position + forward);
-      }
-      pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);     
+            if (direction.sqrMagnitude > 0.01f)
+            {
+                Vector3 forward = Vector3.Slerp(transform.forward,
+                    direction,
+                    rotSpeed * Time.deltaTime /
+                    Vector3.Angle(transform.forward, direction));
+                transform.LookAt(transform.position + forward);
+                animator.SetBool("Walk", true);
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+            }
+            // pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
+            navMeshAgent.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
+        }
     }
 
     private void Run()
