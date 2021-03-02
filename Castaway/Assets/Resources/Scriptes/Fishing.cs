@@ -1,18 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fishing : MonoBehaviour
 {
     public GameObject bubber;
-    private void CastingRoad()
+
+    private void Update()
     {
-        bubber.SetActive(true);  
+        CastingLineState();
     }
-   
-    private void PullRoad()
+
+    private void CastingLineState()
     {
-        bubber.SetActive(false);
+        if (GameObject.Find("Player").GetComponent<Player>().action == true)
+        {
+            bubber.SetActive(true);
+        }
+        else
+        {
+            bubber.SetActive(false);
+        }
     }
 
 }

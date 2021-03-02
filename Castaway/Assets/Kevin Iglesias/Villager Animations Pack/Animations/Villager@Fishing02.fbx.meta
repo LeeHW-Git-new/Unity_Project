@@ -454,13 +454,6 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: PullRoad
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: db22743128ecd7c4296cbc9d761d6343, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 1
         functionName: AnimationOff
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
