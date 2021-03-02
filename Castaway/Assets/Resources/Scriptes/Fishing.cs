@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class Fishing : MonoBehaviour
 {
-    public GameObject bobber;
-    public Transform parent;
-    private GameObject bubberChild;
+    public GameObject bubber;
     private void CastingRoad()
     {
-        Debug.Log("Cast");
-
-        bubberChild = Instantiate(bobber) as GameObject;
-        bubberChild.transform.SetParent(parent);
-        bubberChild.transform.rotation = parent.rotation;
-        bubberChild.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z);
-
+        bubber.SetActive(true);  
     }
    
     private void PullRoad()
     {
-        Destroy(bubberChild);
+        bubber.SetActive(false);
     }
 
 }
