@@ -15,12 +15,13 @@ public class Player : MonoBehaviour
     public float rotSpeed = 360f;
     public int selectNo = -1;
     [HideInInspector]
-    public bool action = false;
+    public bool action;
     public GameObject playerHand;
     public Image hpBar;
 
     private void Start()
     {
+        action = false;
         GameManager.Instance.playerHP = 100f;
         characterRigidbody = GetComponent<Rigidbody>();
         pcController = GetComponent<CharacterController>();

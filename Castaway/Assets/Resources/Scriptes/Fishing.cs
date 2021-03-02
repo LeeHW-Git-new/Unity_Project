@@ -7,6 +7,12 @@ public class Fishing : MonoBehaviour
 {
     public GameObject bubber;
 
+    private void Awake()
+    {
+        bubber.SetActive(false);
+    }
+
+
     private void Update()
     {
         CastingLineState();
