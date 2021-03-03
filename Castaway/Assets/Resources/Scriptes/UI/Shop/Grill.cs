@@ -100,6 +100,7 @@ public class Grill : MonoBehaviour
     {
         if (cookingCheck)
         {
+            GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Cooking");
             Inventory.Instance.DeleteItem(subSlotL.GetComponent<Item>());
             Inventory.Instance.DeleteItem(subSlotR.GetComponent<Item>());
             Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
