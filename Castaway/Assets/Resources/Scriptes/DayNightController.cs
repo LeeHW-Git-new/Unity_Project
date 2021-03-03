@@ -49,6 +49,8 @@ namespace BoatAttack
         // vars
         private float _prevTime; // previous time
 
+        public GameObject playerLight;
+
         void Awake()
         {
             _instance = this;
@@ -75,6 +77,16 @@ namespace BoatAttack
                 time += 0.001f*Time.deltaTime;
             else if(time >1)
                 time = 0;
+
+
+            if (time >= 0.61f)
+            {
+                playerLight.SetActive(true);
+            }
+            else if(time <=0.6f && time>=0.35f)
+            {
+                playerLight.SetActive(false);
+            }
 
         }
 
