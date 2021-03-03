@@ -11,8 +11,14 @@ public class Grill : MonoBehaviour
     public GameObject mainSlot;
     public GameObject subSlotL;
     public GameObject subSlotR;
+    public GameObject fireExplosion;
 
     private bool cookingCheck = false;
+
+    private void Awake()
+    {
+        
+    }
 
     private void Update()
     {
@@ -101,6 +107,7 @@ public class Grill : MonoBehaviour
         if (cookingCheck)
         {
             GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Cooking");
+            fireExplosion.SetActive(true);
             Inventory.Instance.DeleteItem(subSlotL.GetComponent<Item>());
             Inventory.Instance.DeleteItem(subSlotR.GetComponent<Item>());
             Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
