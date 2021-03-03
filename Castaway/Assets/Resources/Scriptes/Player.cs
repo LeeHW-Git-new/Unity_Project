@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(action);
+        //Debug.Log(action);
         StartCoroutine(HPbar());
         //animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
 
@@ -107,7 +107,10 @@ public class Player : MonoBehaviour
                 hand.GetChild(i).gameObject.SetActive(false);
             }
         }
-
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            selectNo = -1;
+        }
     }
 
     private void AnimationState()
