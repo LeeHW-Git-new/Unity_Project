@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class AIController : MonoBehaviour
     public int HP = 3;
     public float jumpForce = 300;
 
-    private Vector3 direction;
+    protected Vector3 destination;
 
     private bool isDead;
     private bool isAction;
@@ -24,13 +25,13 @@ public class AIController : MonoBehaviour
     private float CurrentTime;
 
     [SerializeField] private Animator anim;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private NavMeshAgent Nav;
     [SerializeField] private BoxCollider BoxCol;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        Nav = GetComponent<NavMeshAgent>();
         CurrentTime = WaitTime;
         isAction = true;
   
@@ -40,10 +41,10 @@ public class AIController : MonoBehaviour
     {
         if ((transform.position - GameObject.Find("Player").transform.position).magnitude<5f)
         {
-            //Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 2.5f);
-            //anim.SetBool("Walk", true);
-            //transform.position += direction * 3f * Time.deltaTime;
+            Vector3 direction = (transform.position - GameObject.Find("Player").transform.position).normalized;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 2.5f);
+            anim.SetBool("Walk", true);
+            transform.position += direction * 3f * Time.deltaTime;
         }
         else
         {
@@ -63,15 +64,7 @@ public class AIController : MonoBehaviour
     {
        if(isWalking)
         {
-            rb.MovePosition(transform.position + transform.forward * applySpeed * Time.deltaTime);
-        }
-    }
-    private void Rotation()
-    {
-        if(isWalking)
-        {
-            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
-            rb.MoveRotation(Quaternion.Euler(_rotation));
+            Nav.SetDestination(transform.position + destination * 5f);
         }
     }
     private void ElapseTime()
@@ -92,7 +85,7 @@ public class AIController : MonoBehaviour
 
         applySpeed = movementSpeed;
         //direction.Set(0f, -90f, 0f);
-
+        destination.Set(Random.Range(-0.2f, 0.2f), 0f, Random.Range(0.5f, 1f));
         RandomAction();
     }
 
@@ -126,20 +119,6 @@ public class AIController : MonoBehaviour
         }
     }
 
-
-
-    //public void Damage(int _dmg , Vector3 _targetPos)
-    //{
-    //    if(!isDead)
-    //    {
-    //        HP -= _dmg;
-    //        if(HP <=0)
-    //        {
-    //            Dead();
-    //            return;
-    //        }
-    //    }
-    //}
     private void Dead()
     {
         isWalking = false;
@@ -155,7 +134,7 @@ public class AIController : MonoBehaviour
     private void Jump()
     {
         CurrentTime = WaitTime;
-        rb.AddForce(0, jumpForce, 0);
+        //rb.AddForce(0, jumpForce, 0);
         anim.SetTrigger("jump");
     }
     private void TryWalk()
@@ -177,29 +156,4 @@ public class AIController : MonoBehaviour
         Instantiate(DropItem, gameObject.transform.position, Quaternion.identity);
     }
 
-    //void ControllPlayer()
-    //{
-    //    float moveHorizontal = Input.GetAxisRaw("Horizontal");
-    //    float moveVertical = Input.GetAxisRaw("Vertical");
-
-    //    Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-    //    if (movement != Vector3.zero)
-    //    {
-    //        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-    //        anim.SetInteger("Walk", 1);
-    //    }
-    //    else {
-    //        anim.SetInteger("Walk", 0);
-    //    }
-
-    //    transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
-
-    //    if (Input.GetButtonDown("Jump") && Time.time > canJump)
-    //    {
-    //            rb.AddForce(0, jumpForce, 0);
-    //            canJump = Time.time + timeBeforeNextJump;
-    //            anim.SetTrigger("jump");
-    //    }
-    //}
 }

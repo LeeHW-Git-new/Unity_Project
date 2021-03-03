@@ -65,7 +65,6 @@ public class Item : MonoBehaviour
 
     public void UseItem()
     {
-
         switch(this.type)
         {
             case Item.TYPE.HP:
@@ -80,5 +79,4 @@ public class Item : MonoBehaviour
                 break;
         }
     }
-
 }
