@@ -16,10 +16,11 @@ public class FishingBubber : MonoBehaviour
             {
                 Debug.Log("Get Fish");
                 Inventory.Instance.AddItem(fish);
+                GameObject.Find("Player").GetComponent<Player>().action = false;
             }
             else
             {
-                
+                GameObject.Find("Player").GetComponent<Player>().action = false;
             }
         }
     }
