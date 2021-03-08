@@ -15,6 +15,9 @@ public class Boat : MonoBehaviour
    
     void Update()
     {
-        agent.SetDestination(target.position);
+        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 }
