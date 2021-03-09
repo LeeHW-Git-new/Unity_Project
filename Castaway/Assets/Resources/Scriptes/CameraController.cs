@@ -14,12 +14,12 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if(GameObject.Find("Player").active == true)
+        if(GameObject.Find("Player").GetComponent<Player>().CamMode)
         {
             tr.position = new Vector3(target.position.x - 0.5f, target.position.y+15f, target.position.z -15f);
             tr.LookAt(target);
         }
-        else if(GameObject.Find("FakePlayer").active == true)
+        else
         {
             tr.position = new Vector3(target2.position.x - 0.5f, target2.position.y + 15f, target2.position.z - 15f);
             tr.LookAt(target2);
