@@ -3084,7 +3084,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.019024843, y: -0.6668876, z: 0.6055943, w: 0.43376803}
+  m_LocalRotation: {x: 0.034952015, y: -0.64418286, z: 0.62969184, w: 0.4327759}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -73134,6 +73134,7 @@ GameObject:
   - component: {fileID: 1197708893}
   - component: {fileID: 1197708895}
   - component: {fileID: 1197708894}
+  - component: {fileID: 1197708896}
   m_Layer: 5
   m_Name: HPbarFill
   m_TagString: Untagged
@@ -73198,6 +73199,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197708892}
   m_CullTransparentMesh: 0
+--- !u!114 &1197708896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197708892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!4 &1199320103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 480322, guid: 3f5d425589902a04eacca7958e892056, type: 3}
@@ -85659,7 +85675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.4505524
+  time: 0.4623865
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
