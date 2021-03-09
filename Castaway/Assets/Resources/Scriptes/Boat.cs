@@ -22,9 +22,9 @@ public class Boat : MonoBehaviour
                && Input.GetKeyDown(KeyCode.E))
        {
             GameObject.Find("Player").transform.GetChild(1).gameObject.SetActive(false);
+            GameObject.Find("Player").GetComponent<Player>().CamMode = false;
            agent.SetDestination(target.position);
            fakePlayer.SetActive(true);
-
        }
         
     }
