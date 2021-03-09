@@ -161,6 +161,10 @@ public class Player : MonoBehaviour
             hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
             yield return new WaitForSeconds(5f);
         }
+        if(GameManager.Instance.playerHP <= 0)
+        {
+            animator.SetTrigger("Die");
+        }
     }
 
 }
