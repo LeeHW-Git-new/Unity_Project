@@ -5,19 +5,27 @@ using UnityEngine.AI;
 public class Boat : MonoBehaviour
 {
     public Transform target;
+    public GameObject fakePlayer;
     private NavMeshAgent agent;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        fakePlayer.SetActive(false);
     }
 
    
     void Update()
     {
-        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f)
-        {
-            agent.SetDestination(target.position);
-        }
+      
+       if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f
+               && Input.GetKeyDown(KeyCode.E))
+       {
+            GameObject.Find("Player").transform.GetChild(1).gameObject.SetActive(false);
+           agent.SetDestination(target.position);
+           fakePlayer.SetActive(true);
+
+       }
+        
     }
 }
