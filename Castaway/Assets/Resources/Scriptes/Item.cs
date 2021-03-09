@@ -48,6 +48,15 @@ public class Item : MonoBehaviour
         //}
 
     }
+
+    private void Update()
+    {
+        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 1.0f
+        && Input.GetKeyDown(KeyCode.E))
+        {
+            AddItem();
+        }
+    }
     private void AddItem()
     {
         if(Inventory.Instance.AddItem(this))
@@ -55,13 +64,16 @@ public class Item : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.layer == 10)
-        {
-            AddItem();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.layer == 10)
+    //    {
+    //        if(Input.GetKeyDown(KeyCode.E))
+    //        {
+    //            AddItem();
+    //        }
+    //    }
+    //}
 
     public void UseItem()
     {
