@@ -51,6 +51,7 @@ public class dialog : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
     }
 
     public void skip(int index)

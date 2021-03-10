@@ -8,10 +8,10 @@ public class dilaog_editor : Editor
 {
     dialog Dialog = null;
     List<bool> show_dialog = new List<bool>();
-
     void OnEnable()
     {
         Dialog = (dialog)target;
+ 
         for (int i = 0; i < Dialog.dialog_cycles.Count; i++)
         {
             show_dialog.Add(false);
@@ -21,6 +21,7 @@ public class dilaog_editor : Editor
 
     public override void OnInspectorGUI()
     {
+        Dialog.dialog_obj = (GameObject)EditorGUILayout.ObjectField("Dialog Obj", Dialog.dialog_obj, typeof(GameObject), true);
         Dialog.delay = EditorGUILayout.FloatField("출력 딜레이", Dialog.delay);
 
         for (int i = 0; i < Dialog.dialog_cycles.Count; i++)
