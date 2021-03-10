@@ -28,5 +28,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public float playerHP;
+    public string playerName = "Jack";
 
 }

@@ -40,8 +40,8 @@ public class dilaog_editor : Editor
                 for (int j = 0; j < Dialog.dialog_cycles[i].info.Count; j++)
                 {
 
-                    EditorGUILayout.LabelField("name");
-                    Dialog.dialog_cycles[i].info[j].name = EditorGUILayout.TextArea(Dialog.dialog_cycles[i].info[j].name, GUILayout.MinWidth(20));
+                    //EditorGUILayout.LabelField("name");
+                    //Dialog.dialog_cycles[i].info[j].name = EditorGUILayout.TextArea(Dialog.dialog_cycles[i].info[j].name, GUILayout.MinWidth(20));
                     EditorGUILayout.LabelField("지문");
                     Dialog.dialog_cycles[i].info[j].content = EditorGUILayout.TextArea(Dialog.dialog_cycles[i].info[j].content, GUILayout.MinWidth(60), GUILayout.MinHeight(30));
 

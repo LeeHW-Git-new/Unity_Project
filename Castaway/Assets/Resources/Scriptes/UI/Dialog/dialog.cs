@@ -77,7 +77,7 @@ public class dialog : MonoBehaviour
         for (int i = 0; i < dialog_cycles[index].info.Count; i++)      
         {
 
-            nameing.text = dialog_cycles[index].info[i].name;
+            nameing.text = GameManager.Instance.playerName;
 
             text_ = text_seq.Dequeue();                                 
             
