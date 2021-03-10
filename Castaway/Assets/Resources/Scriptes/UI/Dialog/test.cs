@@ -38,7 +38,7 @@ public class test : MonoBehaviour
     IEnumerator timer()
     {
         yield return new WaitUntil(() => {
-            if (Vector3.Distance(player.transform.position, target.transform.position) >= 5.0f)
+            if (false)
             {
                 return true;
             }
