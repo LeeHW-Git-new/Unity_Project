@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 876069733}
   - component: {fileID: 876069735}
   - component: {fileID: 876069734}
+  - component: {fileID: 970025468}
   m_Layer: 0
   m_Name: RockGrey1
   m_TagString: Untagged
@@ -142,3 +143,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropItem: {fileID: 3551997286430846737, guid: 88bf8033f84797d40ba4065a9a6a300e, type: 3}
   RockHP: 3
+--- !u!208 &970025468
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157192}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 2, y: 1.695, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

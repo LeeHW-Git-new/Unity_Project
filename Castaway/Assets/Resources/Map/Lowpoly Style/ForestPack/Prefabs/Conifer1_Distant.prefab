@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 13676054}
   - component: {fileID: 3173171260101416361}
   - component: {fileID: 3291360096295471290}
+  - component: {fileID: 1933876291755615925}
   m_Layer: 0
   m_Name: Conifer1_Distant
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 134488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0662751, y: 1.3536087, z: 1.0662751}
+  m_LocalScale: {x: 1.0662751, y: 1.3536087, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -128,3 +129,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropItem: {fileID: 3551997286430846737, guid: d32f01b1c31cd464ea9a1f54185e85f7, type: 3}
   TreeHP: 3
+--- !u!208 &1933876291755615925
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134488}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.6, y: 6.636, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.25, y: 5.992, z: -0.106000006}
+  m_TimeToStationary: 0.5

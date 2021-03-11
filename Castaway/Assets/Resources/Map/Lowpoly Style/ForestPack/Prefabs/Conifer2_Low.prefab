@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 13655800}
   - component: {fileID: 1857660951232194520}
   - component: {fileID: 1570263167816139982}
+  - component: {fileID: 7079179390482804018}
   m_Layer: 0
   m_Name: Conifer2_Low
   m_TagString: Untagged
@@ -94,7 +95,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.7066698
+  m_Radius: 0.84
   m_Height: 10.430761
   m_Direction: 1
   m_Center: {x: -0.39792156, y: 4.8749924, z: 0.019930005}
@@ -128,3 +129,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropItem: {fileID: 3551997286430846737, guid: d32f01b1c31cd464ea9a1f54185e85f7, type: 3}
   TreeHP: 3
+--- !u!208 &7079179390482804018
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176750}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.71, y: 5.215, z: 0.71}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.39800003, y: 4.875, z: 0.020000001}
+  m_TimeToStationary: 0.5
