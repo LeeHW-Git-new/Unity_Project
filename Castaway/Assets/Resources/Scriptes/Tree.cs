@@ -30,10 +30,13 @@ public class Tree : MonoBehaviour
 
                     Invoke("AttackTree", 3);
                     this.GetComponent<ParticleSystem>().Play();
+                    SoundManager.Instance.PlaySFX("WoodImpact");
+            
                     //TreeHP--;
                     if (TreeHP <= 0)
                     {
                         this.GetComponent<ParticleSystem>().Play();
+                        SoundManager.Instance.PlaySFX("TreeFalling");
                         //Invoke("Destruction", 3);
                         Destruction();
                     }
