@@ -29,9 +29,11 @@ public class Tree : MonoBehaviour
                 {
 
                     Invoke("AttackTree", 3);
+                    this.GetComponent<ParticleSystem>().Play();
                     //TreeHP--;
                     if (TreeHP <= 0)
                     {
+                        this.GetComponent<ParticleSystem>().Play();
                         //Invoke("Destruction", 3);
                         Destruction();
                     }

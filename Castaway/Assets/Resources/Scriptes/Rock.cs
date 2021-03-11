@@ -28,9 +28,11 @@ public class Rock : MonoBehaviour
             {
                 {
                     Invoke("AttackRock", 3);
+                    this.GetComponent<ParticleSystem>().Play();
                     if (RockHP <= 0)
                     {
                         //Invoke("Destruction", 3);
+                        this.GetComponent<ParticleSystem>().Play();
                         Destruction();
                     }
                     Debug.Log(RockHP);
