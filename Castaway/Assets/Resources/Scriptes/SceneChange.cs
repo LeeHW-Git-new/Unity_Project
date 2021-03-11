@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class TestSceneChange : MonoBehaviour
+public class SceneChange : MonoBehaviour
 {
     public Slider volumeSlider;
-    // Start is called before the first frame update
+    public InputField inputField;
+
     void Start()
     {
         SoundManager.Instance.ChangeBGM("MenuBGM");
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         BgmVolume();
@@ -27,9 +28,9 @@ public class TestSceneChange : MonoBehaviour
 
     void ChangeScene()
     {
+        GameManager.Instance.playerName = inputField.text;
         LoadingManager.LoadScene("Forest");
     }
-
 
     void Quit()
     {
