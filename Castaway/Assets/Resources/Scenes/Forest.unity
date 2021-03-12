@@ -3163,7 +3163,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.018543331, y: -0.6675594, z: 0.60485363, w: 0.4337889}
+  m_LocalRotation: {x: 0.01859783, y: -0.6674834, z: 0.6049375, w: 0.43378654}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3949,10 +3949,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 60
   m_AngularDrag: 50
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &144903072
 MonoBehaviour:
@@ -84575,7 +84575,6 @@ MonoBehaviour:
   action: 0
   playerHand: {fileID: 438758359}
   hpBar: {fileID: 1197708894}
-  CamMode: 1
 --- !u!143 &1234121180
 CharacterController:
   m_ObjectHideFlags: 0
@@ -91373,6 +91372,7 @@ MonoBehaviour:
   target: {fileID: 1234121178}
   target2: {fileID: 144903070}
   end: 0
+  camState: 0
 --- !u!20 &1540180602
 Camera:
   m_ObjectHideFlags: 0
@@ -91442,7 +91442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45002
+  time: 0.45005998
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
