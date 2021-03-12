@@ -17,7 +17,6 @@ public class Boat : MonoBehaviour
    
     void Update()
     {
-      
        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f
                && Input.GetKeyDown(KeyCode.E))
        {
@@ -26,6 +25,5 @@ public class Boat : MonoBehaviour
            agent.SetDestination(target.position);
            fakePlayer.SetActive(true);
        }
-        
     }
 }

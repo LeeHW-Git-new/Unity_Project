@@ -47,8 +47,11 @@ public class Player : MonoBehaviour
 
     private void GetInput()
     {
-        CharacterControl_Slerp();
-        Run();
+        if(GameManager.Instance.playerHP >= 0)
+        {
+            CharacterControl_Slerp();
+            Run();
+        }
     }
 
     private void CharacterControl_Slerp()
