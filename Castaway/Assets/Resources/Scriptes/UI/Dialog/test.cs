@@ -45,7 +45,7 @@ public class test : MonoBehaviour
             else
             {
 
-                if (Vector3.Distance(player.transform.position, target.transform.position)<=5.0f)
+                if (Vector3.Distance(player.transform.position, target.transform.position)<=6.0f)
                 {
                     if (dialog.instance.dialog_read(0) && !dialog.instance.running)
                     {
