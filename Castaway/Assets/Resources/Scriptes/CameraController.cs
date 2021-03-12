@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            tr.position = new Vector3(target2.position.x - 0.5f, target2.position.y + 15f, target2.position.z - 15f);
+            tr.position = new Vector3(target2.position.x + 5.0f, target2.position.y+30f, target2.position.z - 15f);
             tr.LookAt(target2);
         }
     }
