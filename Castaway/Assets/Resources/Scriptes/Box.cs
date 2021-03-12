@@ -47,9 +47,17 @@ public class Box : MonoBehaviour
         this.transform.GetChild(2).gameObject.SetActive(true);
         Drop();
         DropItem.SetActive(true);
+        Del();
+    }
+
+    void Del()
+    {
+        Destroy(gameObject, 2);
     }
     void Drop()
     {
         Instantiate(DropItem, gameObject.transform.position, Quaternion.identity);
+        Instantiate(DropItem2, gameObject.transform.position, Quaternion.identity);
+        Instantiate(DropItem3, gameObject.transform.position, Quaternion.identity);
     }
 }
