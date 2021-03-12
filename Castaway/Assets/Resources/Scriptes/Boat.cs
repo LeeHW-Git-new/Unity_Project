@@ -22,10 +22,20 @@ public class Boat : MonoBehaviour
                && Input.GetKeyDown(KeyCode.E))
        {
             GameObject.Find("Player").transform.GetChild(1).gameObject.SetActive(false);
-            GameObject.Find("Player").GetComponent<Player>().CamMode = false;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.Boat;
            agent.SetDestination(target.position);
            fakePlayer.SetActive(true);
        }
-        
+       
+
+       if(Vector3.Distance(this.transform.position, target.transform.position)<= 100.0f
+            && GameObject.Find("Main Camera").GetComponent<CameraController>().camState != CameraController.CamMode.GameOver)
+        {
+            GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.End;
+        }
+
     }
+
+
+
 }

@@ -21,8 +21,6 @@ public class Player : MonoBehaviour
     public GameObject playerHand;
     public Image hpBar;
 
-    public bool CamMode = true;
-
     private void Start()
     {
         action = false;
