@@ -21,8 +21,12 @@ public class Boat : MonoBehaviour
        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f
                && Input.GetKeyDown(KeyCode.E))
        {
-          GameObject.Find("Player").GetComponent<Animator>().SetTrigger("BoatFix");
-          Invoke("BoatFix", 4.0f);
+            //GameObject.Find("Player").GetComponent<Animator>().SetTrigger("BoatFix");
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+            GameObject.Find("Player").transform.GetChild(1).gameObject.SetActive(false);
+            GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.Boat;
+            agent.SetDestination(target.position);
+            fakePlayer.SetActive(true);
        }
        
 
@@ -34,16 +38,6 @@ public class Boat : MonoBehaviour
 
     }
 
-
-
-    void BoatFix()
-    {
-        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-        GameObject.Find("Player").transform.GetChild(1).gameObject.SetActive(false);
-        GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.Boat;
-        agent.SetDestination(target.position);
-        fakePlayer.SetActive(true);
-    }
 
 
 }
