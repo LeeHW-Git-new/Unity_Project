@@ -40,7 +40,9 @@ public class test : MonoBehaviour
         yield return new WaitUntil(() => {
             if (false)
             {
+                
                 return true;
+
             }
             else
             {
@@ -53,6 +55,7 @@ public class test : MonoBehaviour
                         index = 0;
                         IEnumerator dialog_co = dialog.instance.dialog_system_start(0);
                         StartCoroutine(dialog_co);
+                        
                         if (dialog.instance.dialog_read(0))
                         {
                             return false;
@@ -61,7 +64,7 @@ public class test : MonoBehaviour
                     }
                     else if (!dialog.instance.dialog_read(0) && !dialog.instance.running)
                     {
-                       // time -= Time.deltaTime;
+                        // time -= Time.deltaTime;
                         
                     }
                 }
