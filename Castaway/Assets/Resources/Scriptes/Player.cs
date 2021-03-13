@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     private Rigidbody characterRigidbody;
@@ -117,28 +118,30 @@ public class Player : MonoBehaviour
     {   
         if (Input.GetMouseButtonDown(0))
         {
-            switch (selectNo)
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                case -1:
-                    return;
+                switch (selectNo)
+                {
+                    case -1:
+                        return;
 
-                case 0:
-                    animator.SetTrigger("Fishing");
-                    break;
+                    case 0:
+                        animator.SetTrigger("Fishing");
+                        break;
 
-                case 1:
-                    animator.SetTrigger("Axeing");
-                    break;
+                    case 1:
+                        animator.SetTrigger("Axeing");
+                        break;
 
-                case 2:
-                    animator.SetTrigger("Picking");
-                    break;
+                    case 2:
+                        animator.SetTrigger("Picking");
+                        break;
 
-                case 3:
-                    animator.SetTrigger("Attack");
-                    break;
+                    case 3:
+                        animator.SetTrigger("Attack");
+                        break;
+                }
             }
-
         }
     }
 
