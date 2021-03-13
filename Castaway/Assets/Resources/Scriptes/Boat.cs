@@ -7,7 +7,7 @@ public class Boat : MonoBehaviour
     public Transform target;
     public GameObject fakePlayer;
     private NavMeshAgent agent;
-
+    private bool fix = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -18,12 +18,18 @@ public class Boat : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 10.0f
+        FixCheck();
+
+        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 5.0f
                && Input.GetKeyDown(KeyCode.E))
         {
-            this.GetComponent<ParticleSystem>().Play();
-            GameObject.Find("Player").GetComponent<Animator>().SetTrigger("BoatFix");
-            Invoke("BoatFix", 5.0f);
+
+            if (fix)
+            {
+                this.GetComponent<ParticleSystem>().Play();
+                GameObject.Find("Player").GetComponent<Animator>().SetTrigger("BoatFix");
+                Invoke("BoatFix", 5.0f);
+            }
         }
 
 
@@ -47,5 +53,33 @@ public class Boat : MonoBehaviour
         fakePlayer.SetActive(true);
     }
 
+
+    void FixCheck()
+    {
+        int slotCnt = Inventory.Instance.AllSlot.Count;
+        int itemCnt = 0;
+        for (int i = 0; i < slotCnt; i++)
+        {
+            Slot slot = Inventory.Instance.AllSlot[i].GetComponent<Slot>();
+
+            if (!slot.isSlots())
+                continue;
+
+
+            if (slot.slot.Peek().no == 11)
+            {
+                itemCnt += slot.slot.Count;
+            }
+
+        }
+
+
+        if(itemCnt >=5)
+        {
+            fix = true;
+        }
+
+
+    }
 
 }

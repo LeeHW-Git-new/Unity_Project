@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
     {
         while (GameManager.Instance.playerHP >= 0)
         {
-            GameManager.Instance.playerHP -= 0.1f * Time.deltaTime;
+            GameManager.Instance.playerHP -= 0.01f * Time.deltaTime;
             hpBar.fillAmount = (GameManager.Instance.playerHP / 100f);
             yield return new WaitForSeconds(5f);
         }
