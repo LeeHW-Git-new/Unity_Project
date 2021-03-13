@@ -64,6 +64,6 @@ public class Tree : MonoBehaviour
 
     void Drop()
     {
-        Instantiate(DropItem, gameObject.transform.position,Quaternion.identity);
+        Instantiate(DropItem, gameObject.transform.position + new Vector3(0, 1.5f, 0),Quaternion.identity);
     }
 }
