@@ -47,12 +47,12 @@ public class test : MonoBehaviour
 
                 if (Vector3.Distance(player.transform.position, target.transform.position)<=6.0f)
                 {
+                    
                     if (dialog.instance.dialog_read(0) && !dialog.instance.running)
                     {
                         index = 0;
                         IEnumerator dialog_co = dialog.instance.dialog_system_start(0);
                         StartCoroutine(dialog_co);
-                        
                         if (dialog.instance.dialog_read(0))
                         {
                             return false;

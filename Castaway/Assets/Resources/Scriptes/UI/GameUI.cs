@@ -59,6 +59,7 @@ public class GameUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && !GameObject.Find("Player").GetComponent<Player>().action)
         {
             MainMenuPrfab.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

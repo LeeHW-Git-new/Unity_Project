@@ -56,6 +56,7 @@ public class RingMenu : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
+            Time.timeScale = 1;
             gameObject.SetActive(false);
             GameObject.Find("Player").GetComponent<Player>().selectNo = activeElement;
         }

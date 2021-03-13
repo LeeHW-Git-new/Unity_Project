@@ -17,6 +17,7 @@ public class Boat : MonoBehaviour
    
     void Update()
     {
+       
 
         FixCheck();
 
