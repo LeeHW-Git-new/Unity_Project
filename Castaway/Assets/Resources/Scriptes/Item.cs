@@ -54,7 +54,7 @@ public class Item : MonoBehaviour
     {
         if(other.name == "Player")
         {
-            AddItem();
+          Invoke("AddItem", 0.3f);
         }
     }
 

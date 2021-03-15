@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6240997026451806376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551997286430846737}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-6318518066056360611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4300000, guid: 167c2d432a0d3644f99f805c3ec96f39, type: 3}
     - target: {fileID: 6493350, guid: 19ac1104ca7795142a0ed5606b7401c7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: b8b1f801274b6b94bb67de57592fff38, type: 3}
+    - target: {fileID: 6493350, guid: 19ac1104ca7795142a0ed5606b7401c7, type: 3}
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
@@ -186,7 +203,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6493350, guid: 19ac1104ca7795142a0ed5606b7401c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19ac1104ca7795142a0ed5606b7401c7, type: 3}
 --- !u!1 &3551997286430846737 stripped
 GameObject:
