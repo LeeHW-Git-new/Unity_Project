@@ -3158,7 +3158,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119908546}
-  m_LocalRotation: {x: 0.020387493, y: -0.66498166, z: 0.6076864, w: 0.4337061}
+  m_LocalRotation: {x: 0.01859783, y: -0.6674834, z: 0.6049375, w: 0.43378654}
   m_LocalPosition: {x: 13.00946, y: -8.283262, z: -15.279623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -95839,7 +95839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2633fbace34b4192c2e9b4483a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.45168668
+  time: 0.45005998
   autoIcrement: 0
   speed: 100
   _skybox: {fileID: 0}
@@ -136451,7 +136451,7 @@ PrefabInstance:
     - target: {fileID: 114807186997810214, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
       propertyPath: DropItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3771388960329806152, guid: ede122854d0c65945994730e17f01248, type: 3}
     - target: {fileID: 114807186997810214, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
       propertyPath: WaitTime
       value: 1
