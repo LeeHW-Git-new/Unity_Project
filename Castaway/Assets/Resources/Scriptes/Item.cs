@@ -59,8 +59,8 @@ public class Item : MonoBehaviour
     }
     private void AddItem()
     {
-        if(Inventory.Instance.AddItem(this))
-            gameObject.SetActive(false);
+        if (Inventory.Instance.AddItem(this))
+            Destroy(gameObject);
     }
 
 
