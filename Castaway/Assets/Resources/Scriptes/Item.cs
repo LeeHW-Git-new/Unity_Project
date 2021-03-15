@@ -49,13 +49,15 @@ public class Item : MonoBehaviour
 
     }
 
-    private void Update()
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) <= 1.5f)
+        if(other.name == "Player")
         {
             AddItem();
         }
     }
+
     private void AddItem()
     {
         if (Inventory.Instance.AddItem(this))
