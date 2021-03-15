@@ -7,7 +7,12 @@ public class Boat : MonoBehaviour
     public Transform target;
     public GameObject fakePlayer;
     private NavMeshAgent agent;
-    private bool fix = false;
+
+    [HideInInspector]
+    public bool fix = false;
+
+    [HideInInspector]
+    public bool exit = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -18,8 +23,8 @@ public class Boat : MonoBehaviour
     void Update()
     {
        
-
         FixCheck();
+
 
         if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 5.0f
                && Input.GetKeyDown(KeyCode.E))
@@ -35,9 +40,10 @@ public class Boat : MonoBehaviour
 
 
 
-        if (Vector3.Distance(this.transform.position, target.transform.position)<= 100.0f
+        if (Vector3.Distance(this.transform.position, target.transform.position)<= 120.0f
             && GameObject.Find("Main Camera").GetComponent<CameraController>().camState != CameraController.CamMode.GameOver)
         {
+
             GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.End;
         }
 
@@ -52,6 +58,7 @@ public class Boat : MonoBehaviour
         GameObject.Find("Main Camera").GetComponent<CameraController>().camState = CameraController.CamMode.Boat;
         agent.SetDestination(target.position);
         fakePlayer.SetActive(true);
+        exit = true;
     }
 
 
@@ -75,7 +82,7 @@ public class Boat : MonoBehaviour
         }
 
 
-        if(itemCnt >=5)
+        if(itemCnt >=10)
         {
             fix = true;
         }

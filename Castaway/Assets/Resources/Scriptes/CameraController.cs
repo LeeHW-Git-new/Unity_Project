@@ -57,6 +57,7 @@ public class CameraController : MonoBehaviour
     void EndCamera()
     {
         this.GetComponent<Animator>().SetBool("End", false);
+        LoadingManager.LoadScene("MainMenu");
     }
 
 }

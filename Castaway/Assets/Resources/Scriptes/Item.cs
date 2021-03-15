@@ -51,8 +51,7 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < 1.0f
-        && Input.GetKeyDown(KeyCode.E))
+        if (Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) <= 1.5f)
         {
             AddItem();
         }
