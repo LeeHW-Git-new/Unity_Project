@@ -128,6 +128,6 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: 5091e6685fb5461498afb01a2047ba88, type: 3}
   maxCnt: 5
-  healHP: 5
+  healHP: 20
   no: 4
   itemName: chicken

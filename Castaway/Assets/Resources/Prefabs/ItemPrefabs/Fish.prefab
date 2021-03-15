@@ -46,6 +46,6 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: b75c7e3578505c9499ed301f76ca41bb, type: 3}
   maxCnt: 3
-  healHP: 10
+  healHP: 20
   no: 5
   itemName: CatFish

@@ -128,6 +128,6 @@ MonoBehaviour:
   type: 0
   defaultImg: {fileID: 21300000, guid: 73aa63da94634704a9213271330842f4, type: 3}
   maxCnt: 5
-  healHP: 5
+  healHP: 10
   no: 1
   itemName: beet
