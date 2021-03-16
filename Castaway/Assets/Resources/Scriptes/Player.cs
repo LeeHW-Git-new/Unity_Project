@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     //private CharacterController pcController;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private AudioSource AudioCilp;
 
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         //pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        AudioCilp = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -66,6 +68,10 @@ public class Player : MonoBehaviour
                     Vector3.Angle(transform.forward, direction));
                 transform.LookAt(transform.position + forward);
                 animator.SetBool("Walk", true);
+                if(!AudioCilp.isPlaying)
+                {
+                    AudioCilp.Play();
+                }
             }
             else
             {
