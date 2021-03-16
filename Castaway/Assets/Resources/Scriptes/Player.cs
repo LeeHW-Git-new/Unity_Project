@@ -70,7 +70,8 @@ public class Player : MonoBehaviour
                 animator.SetBool("Walk", true);
                 if(!AudioCilp.isPlaying)
                 {
-                    AudioCilp.Play();
+                    //AudioCilp.Play();
+                    
                 }
             }
             else
@@ -159,6 +160,12 @@ public class Player : MonoBehaviour
     private void AnimationOff()
     {
         action = false;
+    }
+
+
+    private void FootSound()
+    {
+        SoundManager.Instance.PlaySFX("Walk");
     }
 
 
