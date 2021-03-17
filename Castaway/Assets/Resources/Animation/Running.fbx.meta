@@ -59,8 +59,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.13257575
+        functionName: RFootEft
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.37254903
         functionName: FootSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.47303918
+        functionName: LFootEft
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d2645badacd593249a0ab48314a017f6, type: 3}
         floatParameter: 0

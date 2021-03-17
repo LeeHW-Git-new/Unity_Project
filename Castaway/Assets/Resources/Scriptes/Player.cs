@@ -7,10 +7,10 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
-    private Rigidbody characterRigidbody;
-    //private CharacterController pcController;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private GameObject rFoot;
+    private GameObject lFoot;
 
     public static float MoveSpeed = 6.0f;
     public static float RunSpeed =10f;
@@ -26,18 +26,16 @@ public class Player : MonoBehaviour
     {
         action = false;
         GameManager.Instance.playerHP = 100f;
-        characterRigidbody = GetComponent<Rigidbody>();
-        //pcController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+       lFoot = GameObject.Find("Bip01 L Foot");
+       rFoot = GameObject.Find("Bip01 R Foot");
     }
 
     private void Update()
     {
-        //Debug.Log(action);
         StartCoroutine(HPbar());
-        //animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-
         AnimationState();
         EquipSwap();
         GetInput();
@@ -72,7 +70,6 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("Walk", false);
             }
-            // pcController.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
             navMeshAgent.Move(direction * ApplySpeed * Time.deltaTime + Physics.gravity);
         }
     }
@@ -161,6 +158,17 @@ public class Player : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Walk");
     }
+
+    private void LFootEft()
+    {
+        lFoot.GetComponent<ParticleSystem>().Play();
+    }
+
+    private void RFootEft()
+    {
+        rFoot.GetComponent<ParticleSystem>().Play();
+    }
+
 
     private void Casting()
     {
