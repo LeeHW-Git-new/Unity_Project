@@ -29,10 +29,13 @@ public class Rock : MonoBehaviour
                 {
                     Invoke("AttackRock", 3);
                     this.GetComponent<ParticleSystem>().Play();
+                    SoundManager.Instance.PlaySFX("StoneImpact");
+
                     if (RockHP <= 0)
                     {
                         //Invoke("Destruction", 3);
                         this.GetComponent<ParticleSystem>().Play();
+                        SoundManager.Instance.PlaySFX("StoneDestroy");
                         Destruction();
                     }
                     Debug.Log(RockHP);
