@@ -186,6 +186,12 @@ public class Player : MonoBehaviour
     }
 
 
+    private void Attack()
+    {
+        SoundManager.Instance.PlaySFX("Whoosh");
+    }
+
+
     IEnumerator HPbar()
     {
         while (GameManager.Instance.playerHP >= 0)

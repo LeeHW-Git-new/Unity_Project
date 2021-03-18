@@ -20,13 +20,21 @@ public class AIController : MonoBehaviour
     private bool isAction;
     private bool isWalking;
 
-    [SerializeField] private float WalkTime;
-    [SerializeField] private float WaitTime;
+    [SerializeField]
+    private float WalkTime;
+    [SerializeField]
+    private float WaitTime;
+    
     private float CurrentTime;
 
-    [SerializeField] private Animator anim;
-    [SerializeField] private NavMeshAgent Nav;
-    [SerializeField] private BoxCollider BoxCol;
+    [SerializeField] 
+    private Animator anim;
+    [SerializeField] 
+    private NavMeshAgent Nav;
+    [SerializeField] 
+    private BoxCollider BoxCol;
+
+    private AudioSource audioCilp;
 
     void Start()
     {
@@ -34,7 +42,7 @@ public class AIController : MonoBehaviour
         Nav = GetComponent<NavMeshAgent>();
         CurrentTime = WaitTime;
         isAction = true;
-  
+        audioCilp = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -108,10 +116,12 @@ public class AIController : MonoBehaviour
             if (collision.gameObject.name == "Sword")
             {
                 HP--;
-                //anim.SetTrigger("jump");
+                audioCilp.Play();
+                Jump();
                 if (HP <= 0)
                 {
                     Dead();
+                    audioCilp.Play();
                     return;
                 }
                 Debug.Log(HP);

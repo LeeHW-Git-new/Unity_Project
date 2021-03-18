@@ -61,7 +61,10 @@ public class Item : MonoBehaviour
     private void AddItem()
     {
         if (Inventory.Instance.AddItem(this))
+        {
+            SoundManager.Instance.PlaySFX("Bag");
             Destroy(gameObject);
+        }
     }
 
 
