@@ -191,6 +191,11 @@ public class Player : MonoBehaviour
         SoundManager.Instance.PlaySFX("Whoosh");
     }
 
+    private void BoatFix()
+    {
+        SoundManager.Instance.PlaySFX("NailWood");
+    }
+
 
     IEnumerator HPbar()
     {

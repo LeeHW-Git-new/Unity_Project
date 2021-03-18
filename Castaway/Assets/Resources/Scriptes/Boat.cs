@@ -7,6 +7,7 @@ public class Boat : MonoBehaviour
     public Transform target;
     public GameObject fakePlayer;
     private NavMeshAgent agent;
+    private AudioSource audioCilp;
 
     [HideInInspector]
     public bool fix = false;
@@ -17,6 +18,7 @@ public class Boat : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         fakePlayer.SetActive(false);
+        audioCilp = GetComponent<AudioSource>();
     }
 
    
@@ -59,6 +61,7 @@ public class Boat : MonoBehaviour
         agent.SetDestination(target.position);
         fakePlayer.SetActive(true);
         exit = true;
+        audioCilp.Play();
     }
 
 
