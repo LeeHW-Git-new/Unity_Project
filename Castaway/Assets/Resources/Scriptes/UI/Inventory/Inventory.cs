@@ -29,7 +29,6 @@ public class Inventory : MonoBehaviour
     public List<GameObject> AllSlot;    
     public RectTransform InvenRect;     
     public GameObject OriginSlot;       
-
     public float slotSize;              
     public float slotGap;               
     public float slotCountX;            
@@ -116,7 +115,6 @@ public class Inventory : MonoBehaviour
                 slot.AddItem(item);
                 return true;
             }
-            //return false;
         }
          return false;
     }
@@ -212,7 +210,6 @@ public class Inventory : MonoBehaviour
         fullSlot.slot.Clear();
         fullSlot.UpdateInfo(false, fullSlot.DefaultImg);
     }
-
 
 
 }

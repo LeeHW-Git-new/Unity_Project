@@ -16,21 +16,17 @@ public class RingMenu : MonoBehaviour
     {
         float stepLength = 360f / Data.Elements.Length;
         float iconDist = Vector3.Distance(RingCakePiecePrefab.Icon.transform.position, RingCakePiecePrefab.CakePiece.transform.position);
-
         Pieces = new RingCakePiece[Data.Elements.Length];
 
         for(int i = 0; i<Data.Elements.Length; i++)
         {
             Pieces[i] = Instantiate(RingCakePiecePrefab, transform);
-
             Pieces[i].transform.localPosition = Vector3.zero;
             Pieces[i].transform.localRotation = Quaternion.identity;
-
             Pieces[i].CakePiece.fillAmount = 1f / Data.Elements.Length - GapWidthDegree / 360f;
             Pieces[i].CakePiece.transform.localPosition = Vector3.zero;
             Pieces[i].CakePiece.transform.localRotation = Quaternion.Euler(0, 0, -stepLength / 2f + GapWidthDegree / 2f + i * stepLength);
             Pieces[i].CakePiece.color = new Color(1f, 1f, 1f, 0.5f);
-
             Pieces[i].Icon.transform.localPosition = Pieces[i].CakePiece.transform.localPosition + Quaternion.AngleAxis(i * stepLength, Vector3.forward)*Vector3.up * iconDist;
             Pieces[i].Icon.sprite = Data.Elements[i].Icon;
         }
@@ -39,7 +35,9 @@ public class RingMenu : MonoBehaviour
     private void Update()
     {
         float stepLength = 360f / Data.Elements.Length;
-        float mouseAngle = NormlizeAngle(Vector3.SignedAngle(Vector3.up, Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2), Vector3.forward) + stepLength / 2f);
+        float mouseAngle = NormlizeAngle(Vector3.SignedAngle
+            (Vector3.up, Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2), Vector3.forward)
+            + stepLength / 2f);
         int activeElement = (int)(mouseAngle / stepLength);
 
         for (int i = 0; i < Data.Elements.Length; i++)
@@ -62,6 +60,5 @@ public class RingMenu : MonoBehaviour
         }
 
     }
-
     private float NormlizeAngle(float a) => (a + 90f) % 360f;
 }

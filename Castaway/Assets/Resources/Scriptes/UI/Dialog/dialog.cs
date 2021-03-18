@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 [System.Serializable]
 public class dialog_info
 {
@@ -29,18 +30,15 @@ public class dialog : MonoBehaviour
     public Queue<string> text_seq = new Queue<string>();               
     public string name_;                                               
     public string text_;                                               
-
     public Text nameing;                                               
     public Text DialogT;                                               
     public Text Next_T;                                               
-    public GameObject dialog_obj;                                      
-
-    IEnumerator seq_;
-    IEnumerator skip_seq;
-
+    public GameObject dialog_obj;
     public float delay;
     public bool running = false;
 
+    private IEnumerator seq_;
+    private IEnumerator skip_seq;
 
     void Awake()  
     {
@@ -51,7 +49,6 @@ public class dialog : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
     }
 
     public void skip(int index)
@@ -96,10 +93,7 @@ public class dialog : MonoBehaviour
                     return false;                                       
                 }
             });
-        }
-
-
-                                  
+        }                               
 
         dialog_cycles[index].check_cycle_read = true;                 
         running = false;

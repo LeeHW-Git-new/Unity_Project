@@ -15,11 +15,6 @@ public class Grill : MonoBehaviour
 
     private bool cookingCheck = false;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Update()
     {
         FoodCheck();
@@ -53,10 +48,8 @@ public class Grill : MonoBehaviour
         for (int i = 0; i< slotCnt; i++)
         {
             Slot slot = Inventory.Instance.AllSlot[i].GetComponent<Slot>();
-
             if (!slot.isSlots())
                 continue;
-
 
             if (slot.ItemReturn().no == subSlotL.GetComponent<Item>().no)
             {
@@ -66,9 +59,7 @@ public class Grill : MonoBehaviour
             if (slot.ItemReturn().no == subSlotR.GetComponent<Item>().no)
             {
                 foodCntR = true;             
-            }
-
-            
+            }        
         }
 
         if(foodCntL)
@@ -89,7 +80,6 @@ public class Grill : MonoBehaviour
             subSlotR.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
         }
 
-
         if (foodCntL && foodCntR)
         {
             cookingCheck = true;
@@ -101,7 +91,6 @@ public class Grill : MonoBehaviour
 
     }
 
-
     private void Cooking()
     {
         if (cookingCheck)
@@ -112,7 +101,6 @@ public class Grill : MonoBehaviour
             Inventory.Instance.DeleteItem(subSlotR.GetComponent<Item>());
             Inventory.Instance.AddItem(mainSlot.GetComponent<Item>());
         }
-
     }
 
 }

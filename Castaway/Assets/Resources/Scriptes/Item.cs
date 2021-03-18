@@ -35,18 +35,6 @@ public class Item : MonoBehaviour
         this.itemName = name;
         this.maxCnt = maxCnt;
 
-        //Sprite[] spr = Inventory.Instance.spr;
-        //int cnt = Inventory.Instance.spr.Length;
-
-        //for(int i = 0; i<cnt; i++)
-        //{
-        //    if(spr[i].name == this.itemName)
-        //    {
-        //        defaultImg = spr[i];
-        //        break;
-        //    }
-        //}
-
     }
 
 
@@ -66,18 +54,6 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.layer == 10)
-    //    {
-    //        if(Input.GetKeyDown(KeyCode.E))
-    //        {
-    //            AddItem();
-    //        }
-    //    }
-    //}
 
     public void UseItem()
     {
